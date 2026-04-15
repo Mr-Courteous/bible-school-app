@@ -22,7 +22,7 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 w-full z-50 bg-[#faf9f5]/80 backdrop-blur-md border-b border-[#e0bfbf]/20">
         <div className="flex justify-between items-center px-4 md:px-12 py-5">
-          <div className="text-xl md:text-2xl font-bold text-[#570013] font-serif">Theology School</div>
+          <div className="text-xl md:text-2xl font-bold text-[#570013] font-serif">Christ-Pattern Bible College</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 font-serif text-[#570013]">
@@ -30,11 +30,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-bold ${
-                  isActive(link.href)
+                className={`font-bold ${isActive(link.href)
                     ? 'border-b-2 border-[#775a19]'
                     : 'opacity-70 hover:opacity-100 transition-opacity'
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -81,11 +80,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block py-2 px-3 rounded font-serif font-bold transition-all ${
-                  isActive(link.href)
+                className={`block py-2 px-3 rounded font-serif font-bold transition-all ${isActive(link.href)
                     ? 'bg-[#775a19]/10 text-[#775a19] border-l-4 border-[#775a19]'
                     : 'text-[#570013] hover:bg-[#e0bfbf]/10'
-                }`}
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

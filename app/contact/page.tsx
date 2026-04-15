@@ -88,9 +88,17 @@ export default function ContactPage() {
                       <MapPin size={18} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-[#570013] text-sm">Central Campus, Oxford</h4>
-                      <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">12 Latimer Lane, Academic Quarter<br/>Oxford, OX1 4AU, UK</p>
-                      <p className="text-xs text-[#775a19] mt-2 font-bold">+44 (0) 1865 270000</p>
+                      <h4 className="font-bold text-[#570013] text-sm">Permanent Address Site</h4>
+                      <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">
+                        V.I.O house area, No 1, Abiola Adedoja Crescent,<br/>
+                        back CAC Boluwatife District Headquarters, Oke-Ayo,<br/>
+                        Odi-olowo Community, ILESA, Osun State, Nigeria.
+                      </p>
+                      <div className="text-xs text-[#775a19] mt-3 font-bold space-y-1">
+                        <p>08033514808</p>
+                        <p>08056404396</p>
+                        <p>08038571189</p>
+                      </div>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -98,9 +106,12 @@ export default function ContactPage() {
                       <MapPin size={18} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-[#570013] text-sm">Jerusalem Research Center</h4>
-                      <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">St. George's Cathedral Precinct<br/>Jerusalem, 91190</p>
-                      <p className="text-xs text-[#775a19] mt-2 font-bold">+972 2 628 3261</p>
+                      <h4 className="font-bold text-[#570013] text-sm">Ongoing Construction Site</h4>
+                      <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">
+                        Boluwatife Gospel music Dynasty Campground,<br/>
+                        Ere-Ijesa, Oriade Local Government,<br/>
+                        Osun State, Nigeria.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -179,8 +190,8 @@ export default function ContactPage() {
       <footer className="bg-[#faf9f5] pt-24 pb-12 px-8 md:px-12 border-t border-[#e0bfbf]/20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[#584141] text-[10px] font-bold uppercase tracking-widest">
           <div>
-            <div className="text-xl font-bold text-[#570013] font-serif normal-case mb-6">Theology School</div>
-            <p className="opacity-50 lowercase font-normal normal-case leading-relaxed">Bridging the gap between ancient wisdom and modern scholarship through dedicated research and global outreach.</p>
+            <div className="text-xl font-bold text-[#570013] font-serif normal-case mb-6">Christ-Pattern Bible College</div>
+            <p className="opacity-50 lowercase font-normal normal-case leading-relaxed">Raising end-time soldiers for Christ through sound biblical teaching, spiritual growth, and leadership development.</p>
           </div>
           <div className="space-y-4">
             <h5 className="text-[#570013]">Navigation</h5>
@@ -206,7 +217,7 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 text-center opacity-40 text-[9px]">
-          © 2024 Digital Scriptorium Theology School & NGO. All rights reserved.
+          © 2024 Christ-Pattern Bible College. All rights reserved.
         </div>
       </footer>
     </div>

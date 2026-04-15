@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from './components/Navbar';
@@ -22,23 +22,23 @@ export default function TheologySchool() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000" 
-            className="w-full h-full object-cover brightness-[0.4]" 
+          <img
+            src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000"
+            className="w-full h-full object-cover brightness-[0.4]"
             alt="Library background"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#570013]/20 to-[#faf9f5]/40" />
         </div>
-        
+
         <div className="relative z-10 text-center px-6 max-w-4xl">
           <span className="inline-block px-4 py-1 mb-6 border border-white/30 text-white uppercase tracking-widest text-[10px] bg-white/10 backdrop-blur-md rounded-full">
-            EST. 1892 • Digital Scriptorium
+            since 2002 • Ilesa, Nigeria
           </span>
           <h1 className="font-serif text-6xl md:text-8xl text-white mb-6 leading-[1.1]">
-            Where Tradition <br/> Meets <span className="italic text-[#e9c176]">Eternal Wisdom</span>
+            Raising   <br /> End-Time <span className="italic text-[#e9c176]">Soldiers for Christ</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-light">
-            Join a community of scholars dedicated to rigorous theological inquiry and the pursuit of sacred knowledge in the modern age.
+            Dedicated to raising men and women for effective Christian ministry through sound biblical teaching, spiritual growth, and leadership development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-10 py-4 bg-[#570013] text-white font-bold rounded-sm hover:scale-105 transition-transform">Enroll Now</button>
@@ -59,7 +59,7 @@ export default function TheologySchool() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div className="md:col-span-7 relative group h-[450px] overflow-hidden rounded-sm">
-            <img src="https://images.unsplash.com/photo-1544427928-c49cdfebf194?q=80&w=1000" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Biblical Theology" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6AZ1LtcyBZaGrQrlhPcNOw4mxqQwP0ppr4q3-vdyaMdqo53aYEL5ArMEBYTnfdmnwKz_vsEYk0pgpK11tzB4shgafh1DduY4iVu0mEhYSejrPjYfbX39bwwoCy9HL4J1LLQUQQcsBCeVZgZNGESuTRXVwfn8_5-pN44sj6A-C-8J8mIzr4OWydJxBkCo3OIVk6hFUCzbFOy3ubfV4jXaUgCGOyWHBGSsZG5hON_f8E_yalmvB22BYrlZiBY5scOAJ5HClcw_urhqc" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Biblical Theology" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#570013] via-transparent to-transparent opacity-90" />
             <div className="absolute bottom-0 p-10">
               <h3 className="font-serif text-3xl text-white mb-3">Biblical Theology</h3>
@@ -118,20 +118,20 @@ export default function TheologySchool() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {[
-            { 
-              title: "The Discovery of the lost Galatians Fragment", 
-              tag: "Faculty Research", 
-              img: "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=600" 
+            {
+              title: "The Discovery of the lost Galatians Fragment",
+              tag: "Faculty Research",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCc5z-Wz39zWEiIm_4ShIi-k8w5mbRn9Xf23GpdX3iPZ-5YWi-2Ick0fXmrW7qjcJHdgnezBa69cr-wEM7Qom851e3a8k6G4Z69eyqmNNvY8gCR5iHV2qm6OH793qDCWNz0x-Lf16iCObKGgkwq_u3QNZ8rJO_TwytPU6U_z58iHDBfuiyas9rl_rp9W9yDGh_9YuP_qPc8_KmCbiMxsRfwc6ncp4RunDVvBtE77b1SCrCwDLm-sLTZlkI_4GnYQ4WYcAvBHb6UpOHB"
             },
-            { 
-              title: "Annual Symposium: Faith in the Age of AI", 
-              tag: "Events", 
-              img: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=600" 
+            {
+              title: "Annual Symposium: Faith in the Age of AI",
+              tag: "Events",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCaNQz7artjM4f4l7P3qw080ZOiBxIUlLr8rFc94nFpyxIXPza3a7iaS7JbJRMnmEwveG0nrbbinnNlmw3n0-i9p2B1tALetl9xEeV3Fy1oMy2M0xV-exvfTEusj8-NZdFChUDNpPOSUXy1XYFrVgMxsF8A4TKvpd06KAsWRzwbnblkYHpazAUFMkAGBM2muZqsJmiLh0NSK_exKNEdWkmUOQzmhY_tYycieC7EO3k_6PG-zzftPYmG0xhWX15boN-2dgscvepPHFFA"
             },
-            { 
-              title: "Extending the Scriptorium to South Sudan", 
-              tag: "NGO Work", 
-              img: "https://images.unsplash.com/photo-1526666923948-b9566a97e427?q=80&w=600" 
+            {
+              title: "Extending the Scriptorium to South Sudan",
+              tag: "NGO Work",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBXyu9jZK4DK4xB-VRNUTHs0igS82wgY-2MVgVqJMqq5_GT0-hBTMh6QpJdohrnDVYvNIz2MBjyFWNlOcCRR4mdkp3oz2K5e7EvSN2WnJ9T9zXBla_v6N8TOGsm7TavsYn1NLbmea-2SJEO82tI8wCK6p1K5bEsKdpRBz0KVJDkzmKggEkoxbRzG1Wiv8H8uIuQEPHM8CqP8dZKLPOVVQS_gXMSpyZsCVKwBFFQyPo4ZO1eJ5TAQXet8qjnX9lF5se1_2MVt04LGjT9"
             }
           ].map((post, i) => (
             <div key={i} className="group">
@@ -162,8 +162,8 @@ export default function TheologySchool() {
       <footer className="bg-[#faf9f5] py-20 px-8 md:px-12 border-t border-[#e0bfbf]/20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[#584141] text-sm">
           <div className="col-span-1">
-            <div className="text-xl font-bold text-[#570013] font-serif mb-6">Theology School</div>
-            <p className="mb-6 opacity-70">Elevating theological discourse and empowering global service since 1892. A member of the Digital Scriptorium consortium.</p>
+            <div className="text-xl font-bold text-[#570013] font-serif mb-6">Christ-Pattern Bible College</div>
+            <p className="mb-6 opacity-70">Elevating theological discourse and empowering global service since 2002.</p>
             <div className="flex gap-4">
               <Globe size={18} className="opacity-50" />
               <School size={18} className="opacity-50" />
@@ -190,15 +190,18 @@ export default function TheologySchool() {
           </div>
           <div>
             <h5 className="font-bold text-[#570013] uppercase tracking-widest text-[10px] mb-6">Contact</h5>
-            <div className="opacity-70 space-y-4 italic">
-              <p>122 High Street, Scholars Row<br/>Oxford, OX1 4AU</p>
-              <p>+44 (0) 1234 567 890</p>
-              <p>office@digital-scriptorium.edu</p>
+            <div className="opacity-70 space-y-4 italic text-xs">
+              <p>No 1, Abiola Adedoja Crescent, Ilesa, Osun State, Nigeria</p>
+              <div className="space-y-1">
+                <p>08033514808</p>
+                <p>08056404396</p>
+                <p>08038571189</p>
+              </div>
             </div>
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-[#e0bfbf]/20 flex flex-col md:flex-row justify-between items-center text-[10px] opacity-50 uppercase tracking-widest">
-          <p>© 2024 Digital Scriptorium Theology School & NGO. All rights reserved.</p>
+          <p>© 2024 Christ-Pattern Bible College. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <span>Accessibility</span>
             <span>Cookie Policy</span>

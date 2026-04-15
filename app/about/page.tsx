@@ -8,7 +8,31 @@ export default function AboutPage() {
     <div className="min-h-screen bg-[#faf9f5] font-sans selection:bg-[#fed488]">
       <Navbar />
 
-      <main className="pt-32">
+      <main className="pt-32 pb-20">
+        {/* Background & History Section */}
+        <section className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-12">
+              <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-widest block mb-4">Our Journey</span>
+              <h2 className="font-serif text-5xl md:text-6xl text-[#570013] leading-tight mb-12 max-w-4xl">Background and History</h2>
+              <div className="space-y-6 text-[#584141] leading-relaxed opacity-90 text-sm md:text-base max-w-4xl">
+                <p>
+                  The vision for Christ-Pattern Bible College was born out of a divine encounter received during a personal retreat at Babalola Camp, Arakeji, on September 16, 1999. During this time of prayer and spiritual reflection, a clear mandate was given to establish a Bible training institution dedicated to raising men and women for effective Christian ministry.
+                </p>
+                <p>
+                  After sharing this vision with my husband, we committed ourselves to earnest prayer and careful planning, trusting God for guidance and provision.
+                </p>
+                <p>
+                  In January 2002, the vision was brought to life as Christ Pattern Bible College officially commenced operations at a small church building in Irojo, Ademokoya area Ilesa with six students. From its humble beginnings, the college has remained committed to sound biblical teaching, spiritual growth, and leadership development.
+                </p>
+                <p>
+                  Over the years, the institution has recorded significant milestones, including official registration, campus expansion, and over 100 graduates. Today, the college continues to train and equip ministers of the Gospel Interdenominationally who are making meaningful impact in churches, communities, and mission fields both locally and internationally.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Header Hero Section */}
         <section className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -18,7 +42,7 @@ export default function AboutPage() {
                 Stewards of <span className="italic">Ancient Wisdom</span> in a Modern World.
               </h1>
               <p className="text-[#584141] text-lg leading-relaxed opacity-80 max-w-xl">
-                Founded in the tradition of rigorous intellectual inquiry and deep spiritual devotion, our school serves as a digital scriptorium for the 21st-century scholar.
+                Founded with a mission to raise end-time soldiers for Christ, our college serves as a center for biblical excellence and spiritual transformation.
               </p>
             </div>
             <div className="lg:col-span-5 relative">
@@ -69,6 +93,7 @@ export default function AboutPage() {
           </div>
         </section>
 
+
         {/* Timeline Section */}
         <section className="bg-[#f4f4f0] py-32 px-8">
           <div className="max-w-3xl mx-auto text-center mb-20">
@@ -81,9 +106,9 @@ export default function AboutPage() {
 
             <div className="space-y-24">
               {[
-                { year: "1892", title: "The Foundation", desc: "Established as a monastic seminary for rural clergy training." },
-                { year: "1945", title: "Post-War Expansion", desc: "Incorporated Scholarly Humanities and established the Great Library." },
-                { year: "2008", title: "Digital Scriptorium", desc: "Launched our first interactive digital learning platform for distance scholars." }
+                { year: "1999", title: "The Divine Vision", desc: "A clear mandate received during a personal retreat at Babalola Camp, Arakeji." },
+                { year: "2002", title: "Official Commencement", desc: "Started operations in Ilesa with six pioneer students." },
+                { year: "Present", title: "Global Impact", desc: "Over 100 graduates making meaningful impact in mission fields worldwide." }
               ].map((item, index) => (
                 <div key={index} className={`flex items-center w-full ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
                   <div className="w-1/2" />
@@ -156,8 +181,8 @@ export default function AboutPage() {
               <h4 className="font-serif text-[#570013] text-xl mb-2">Academic Excellence</h4>
               <p className="text-[10px] uppercase tracking-widest opacity-60 mb-6">Seal of the Digital Scriptorium</p>
               <div className="flex justify-between text-[10px] font-bold opacity-40">
-                <span>EST. 1892</span>
-                <span>REF: 44321-B</span>
+                <span>EST. 2002</span>
+                <span>REG. CPBC-01</span>
               </div>
             </div>
           </div>
@@ -168,8 +193,8 @@ export default function AboutPage() {
       <footer className="bg-[#faf9f5] py-20 px-8 md:px-12 border-t border-[#e0bfbf]/20 mt-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[#584141] text-sm">
           <div className="col-span-1">
-            <div className="text-xl font-bold text-[#570013] font-serif mb-6">Theology School</div>
-            <p className="mb-6 opacity-70">Elevating theological discourse and empowering global service since 1892.</p>
+            <div className="text-xl font-bold text-[#570013] font-serif mb-6">Christ-Pattern Bible College</div>
+            <p className="mb-6 opacity-70">Elevating theological discourse and empowering global service since 2002.</p>
           </div>
           <div>
             <h5 className="font-bold text-[#570013] uppercase tracking-widest text-[10px] mb-6">Navigation</h5>
@@ -192,7 +217,7 @@ export default function AboutPage() {
                <Globe size={18} />
                <ShieldCheck size={18} />
             </div>
-            <p className="mt-6 text-[10px] opacity-40">© 2024 Digital Scriptorium Theology School & NGO. All rights reserved.</p>
+            <p className="mt-6 text-[10px] opacity-40">© 2024 Christ-Pattern Bible College. All rights reserved.</p>
           </div>
         </div>
       </footer>

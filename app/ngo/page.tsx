@@ -199,8 +199,8 @@ export default function NGOPage() {
       <footer className="bg-[#faf9f5] pt-24 pb-12 px-8 md:px-12 border-t border-[#e0bfbf]/20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[#584141] text-xs">
           <div>
-            <div className="text-xl font-bold text-[#570013] font-serif mb-6">Digital Scriptorium</div>
-            <p className="opacity-60 leading-relaxed">Bridging ancient knowledge with modern action. A non-profit initiative of the Sacred Heritage Theology School.</p>
+            <div className="text-xl font-bold text-[#570013] font-serif mb-6">Christ-Pattern Bible College</div>
+            <p className="opacity-60 leading-relaxed">Bridging biblical knowledge with modern action. A non-profit initiative of Christ-Pattern Bible College.</p>
           </div>
           <div>
             <h5 className="font-bold text-[#570013] uppercase tracking-widest text-[10px] mb-6">The Mission</h5>
@@ -229,7 +229,7 @@ export default function NGOPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 flex justify-between items-center text-[9px] opacity-40 uppercase tracking-[0.2em]">
-          <p>© 2024 Digital Scriptorium Theology School & NGO. All rights reserved.</p>
+          <p>© 2024 Christ-Pattern Bible College. All rights reserved.</p>
           <div className="flex gap-6">
             <span>Give Now</span>
             <span>Volunteer</span>

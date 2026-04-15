@@ -91,7 +91,7 @@ export default function ServicesPage() {
             {/* Digital Scriptorium Online */}
             <div className="md:col-span-8 bg-[#efeeea] rounded-sm overflow-hidden flex flex-col md:flex-row">
               <div className="p-10 flex-1">
-                <h2 className="font-serif text-3xl text-[#570013] mb-4">Digital Scriptorium Online</h2>
+                <h2 className="font-serif text-3xl text-[#570013] mb-4">Christ-Pattern Online</h2>
                 <p className="text-sm text-[#584141] opacity-70 leading-relaxed mb-10">
                   Access our world-class faculty from anywhere in the world. Our digital platform is designed for deep contemplation and community engagement.
                 </p>
@@ -170,7 +170,7 @@ export default function ServicesPage() {
       <footer className="bg-[#faf9f5] pt-24 pb-12 px-8 md:px-12 border-t border-[#e0bfbf]/20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[#584141] text-xs">
           <div>
-            <div className="text-xl font-bold text-[#570013] font-serif mb-6">Theology School</div>
+            <div className="text-xl font-bold text-[#570013] font-serif mb-6">Christ-Pattern Bible College</div>
             <p className="opacity-60 leading-relaxed">Preserving the past, informing the present, and shaping the future of theological discourse.</p>
           </div>
           <div>
@@ -201,7 +201,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 flex flex-col md:flex-row justify-between items-center text-[9px] opacity-40 uppercase tracking-[0.2em]">
-          <p>© 2024 Digital Scriptorium Theology School & NGO. All rights reserved.</p>
+          <p>© 2024 Christ-Pattern Bible College. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Globe size={14} />
             <Award size={14} />

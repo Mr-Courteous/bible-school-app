@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
+import { AnimatedSection, StaggerContainer, StaggerItem, FadeIn } from '../components/AnimatedSection';
 import {
   MapPin,
   Phone,
@@ -19,7 +20,7 @@ export default function ContactPage() {
         {/* Header Section */}
         <section className="max-w-7xl mx-auto px-8 md:px-12 mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <AnimatedSection direction="left">
               <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-[0.2em] block mb-4">Connect with Scholarship</span>
               <h1 className="font-serif text-5xl md:text-6xl text-[#570013] leading-tight mb-8">
                 Inquiry & Dialogue
@@ -27,23 +28,22 @@ export default function ContactPage() {
               <p className="text-[#584141] text-lg leading-relaxed opacity-70 max-w-md">
                 Whether you are a prospective student seeking spiritual growth, a scholar looking for collaboration, or an alumnus reconnecting, our doors—and our minds—remain open to your voice.
               </p>
-            </div>
-            <div className="aspect-video bg-stone-200 rounded-sm overflow-hidden shadow-2xl">
+            </AnimatedSection>
+            <AnimatedSection direction="right" className="aspect-video bg-stone-200 rounded-sm overflow-hidden shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1000" 
                 alt="Library Sanctuary" 
                 className="w-full h-full object-cover grayscale brightness-75"
               />
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
         {/* Form and Info Section */}
         <section className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            
             {/* Contact Form */}
-            <div className="lg:col-span-7 bg-white p-12 shadow-sm border border-[#e0bfbf]/20">
+            <AnimatedSection direction="left" className="lg:col-span-7 bg-white p-12 shadow-sm border border-[#e0bfbf]/20">
               <h2 className="font-serif text-3xl text-[#570013] mb-8">Send a Petition</h2>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -76,10 +76,10 @@ export default function ContactPage() {
                   Submit Inquiry <Send size={14} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </form>
-            </div>
+            </AnimatedSection>
 
             {/* Side Info */}
-            <div className="lg:col-span-5 space-y-12">
+            <AnimatedSection direction="right" className="lg:col-span-5 space-y-12">
               <div>
                 <h3 className="font-serif text-2xl text-[#570013] mb-8">Our Scriptoriums</h3>
                 <div className="space-y-8">
@@ -131,12 +131,12 @@ export default function ContactPage() {
                   </li>
                 </ul>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
         {/* Map Placeholder */}
-        <section className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
+        <FadeIn className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
           <div className="h-[400px] bg-[#e5e4de] relative overflow-hidden group grayscale opacity-60 hover:opacity-100 transition-opacity">
             <div className="absolute inset-0 flex items-center justify-center">
                <div className="bg-white p-6 shadow-xl relative z-10 text-center">
@@ -149,16 +149,16 @@ export default function ContactPage() {
             <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-[#570013] rounded-full animate-pulse" />
             <div className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-[#570013] rounded-full opacity-40" />
           </div>
-        </section>
+        </FadeIn>
 
         {/* FAQ Section */}
         <section className="max-w-4xl mx-auto px-8 md:px-12 mb-24">
-          <div className="text-center mb-16">
+          <AnimatedSection className="text-center mb-16">
             <h2 className="font-serif text-4xl text-[#570013] mb-4">Scholarly Inquiries (FAQ)</h2>
             <p className="text-xs text-[#584141] opacity-60 uppercase tracking-widest">Common questions regarding our heritage and admissions</p>
-          </div>
+          </AnimatedSection>
 
-          <div className="space-y-4">
+          <StaggerContainer className="space-y-4">
             {[
               { 
                 q: "What are the requirements for the Divinity program?", 
@@ -173,7 +173,7 @@ export default function ContactPage() {
                 a: "Indeed. The 'Illumination Grant' is specifically designed to support mature students and those from diverse professional backgrounds transitioning into theology." 
               }
             ].map((faq, i) => (
-              <div key={i} className="bg-white p-8 border border-[#e0bfbf]/20 group">
+              <StaggerItem key={i} className="bg-white p-8 border border-[#e0bfbf]/20 group">
                 <div className="flex gap-4 items-start">
                   <HelpCircle size={20} className="text-[#775a19] shrink-0 mt-1" />
                   <div>
@@ -181,9 +181,9 @@ export default function ContactPage() {
                     <p className="text-xs text-[#584141] opacity-70 leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </section>
 
       {/* Footer (Simplified as per screenshot) */}
@@ -217,7 +217,7 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 text-center opacity-40 text-[9px]">
-          © 2024 Christ-Pattern Bible College. All rights reserved.
+          &copy; {new Date().getFullYear()} Christ-Pattern Bible College. All rights reserved.
         </div>
       </footer>
     </div>

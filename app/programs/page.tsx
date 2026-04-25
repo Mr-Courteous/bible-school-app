@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
+import { AnimatedSection, StaggerContainer, StaggerItem, ScaleIn } from '../components/AnimatedSection';
 import {
   ArrowRight,
   Book,
@@ -17,8 +18,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-[#faf9f5] font-sans selection:bg-[#fed488]">
       <Navbar />
-        {/* Header Section */}
-        <section className="max-w-7xl mx-auto px-8 md:px-12 mb-20 relative">
+        <AnimatedSection className="max-w-7xl mx-auto px-8 md:px-12 mb-20 relative">
           <div className="absolute top-0 right-0 opacity-[0.03] text-[#570013] select-none pointer-events-none">
             <span className="font-serif text-[15rem] leading-none">Σ</span>
           </div>
@@ -29,14 +29,13 @@ export default function ServicesPage() {
           <p className="text-[#584141] text-lg leading-relaxed opacity-70 max-w-2xl">
             Dedicated to the rigorous pursuit of theological understanding, our programs blend ancient wisdom with contemporary critical inquiry to form the next generation of scholars and leaders.
           </p>
-        </section>
+        </AnimatedSection>
 
         {/* Bento Grid Programs */}
         <section className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {/* Graduate Studies */}
-            <div className="md:col-span-8 bg-[#efeeea] rounded-sm overflow-hidden flex flex-col md:flex-row">
+            <StaggerItem direction="left" className="md:col-span-8 bg-[#efeeea] rounded-sm overflow-hidden flex flex-col md:flex-row">
               <div className="p-10 flex-1">
                 <span className="text-[9px] font-bold text-[#775a19] uppercase tracking-widest block mb-4">Advanced Inquiry</span>
                 <h2 className="font-serif text-3xl text-[#570013] mb-4">Graduate Studies</h2>
@@ -58,10 +57,10 @@ export default function ServicesPage() {
               <div className="md:w-1/2 relative">
                 <img src="/set/Set 1_17.jpg" className="w-full h-full object-cover" alt="Graduate Studies" />
               </div>
-            </div>
+            </StaggerItem>
 
             {/* Undergraduate Foundation */}
-            <div className="md:col-span-4 bg-[#570013] p-10 text-white flex flex-col justify-between rounded-sm">
+            <StaggerItem direction="right" className="md:col-span-4 bg-[#570013] p-10 text-white flex flex-col justify-between rounded-sm">
               <div>
                 <h2 className="font-serif text-3xl mb-6 leading-tight">Undergraduate Foundation</h2>
                 <p className="text-sm opacity-70 leading-relaxed mb-10">
@@ -71,10 +70,10 @@ export default function ServicesPage() {
               <button className="w-full py-4 bg-white text-[#570013] font-bold text-xs uppercase tracking-widest hover:bg-[#fed488] transition-colors">
                 Apply Now
               </button>
-            </div>
+            </StaggerItem>
 
             {/* Specialized Certificates */}
-            <div className="md:col-span-4 bg-[#efeeea] p-10 rounded-sm flex flex-col justify-between">
+            <StaggerItem className="md:col-span-4 bg-[#efeeea] p-10 rounded-sm flex flex-col justify-between">
               <div>
                 <Award size={28} className="text-[#775a19] mb-6" />
                 <h2 className="font-serif text-2xl text-[#570013] mb-4">Specialized Certificates</h2>
@@ -86,10 +85,10 @@ export default function ServicesPage() {
                 <span>6-12 Months</span>
                 <ArrowRight size={18} />
               </div>
-            </div>
+            </StaggerItem>
 
             {/* Digital Scriptorium Online */}
-            <div className="md:col-span-8 bg-[#efeeea] rounded-sm overflow-hidden flex flex-col md:flex-row">
+            <StaggerItem direction="left" className="md:col-span-8 bg-[#efeeea] rounded-sm overflow-hidden flex flex-col md:flex-row">
               <div className="p-10 flex-1">
                 <h2 className="font-serif text-3xl text-[#570013] mb-4">Christ-Pattern Online</h2>
                 <p className="text-sm text-[#584141] opacity-70 leading-relaxed mb-10">
@@ -109,13 +108,13 @@ export default function ServicesPage() {
               <div className="md:w-[40%] h-full min-h-[250px] relative">
                 <img src="/set/Set 1_18.jpg" className="w-full h-full object-cover" alt="Digital Learning" />
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </section>
 
         {/* Library & Support Section */}
         <section className="max-w-7xl mx-auto px-8 md:px-12 mb-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div className="relative">
+          <AnimatedSection direction="left" className="relative">
              <div className="absolute -top-10 -left-6 opacity-[0.05] text-[#570013] font-serif text-9xl pointer-events-none select-none">Lib</div>
              <h2 className="font-serif text-4xl text-[#570013] mb-6">The Great Library Services</h2>
              <p className="text-[#584141] opacity-70 mb-10 leading-relaxed">
@@ -137,9 +136,9 @@ export default function ServicesPage() {
                   </div>
                 </div>
              </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="bg-white p-12 border-l-4 border-[#775a19] shadow-sm">
+          <AnimatedSection direction="right" className="bg-white p-12 border-l-4 border-[#775a19] shadow-sm">
             <h3 className="font-serif text-3xl text-[#570013] mb-6">Student Support</h3>
             <p className="text-sm text-[#584141] opacity-70 mb-10 leading-relaxed">
               We believe that rigorous study must be supported by spiritual and physical well-being. Our support systems are built on the principles of community and care.
@@ -152,11 +151,11 @@ export default function ServicesPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
         </section>
 
         {/* Footer CTA */}
-        <section className="max-w-6xl mx-auto px-8">
+        <AnimatedSection direction="none" className="max-w-6xl mx-auto px-8">
           <div className="bg-[#570013] p-16 text-center text-white relative overflow-hidden rounded-sm">
             <h2 className="font-serif text-4xl mb-10 relative z-10">Ready to begin your scholarly journey?</h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
@@ -164,7 +163,7 @@ export default function ServicesPage() {
               <button className="px-8 py-4 border border-white/30 text-white font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-colors">Speak with Admissions</button>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
       {/* Main Footer (Modified slightly to match screenshot footer details) */}
       <footer className="bg-[#faf9f5] pt-24 pb-12 px-8 md:px-12 border-t border-[#e0bfbf]/20">
@@ -201,7 +200,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 flex flex-col md:flex-row justify-between items-center text-[9px] opacity-40 uppercase tracking-[0.2em]">
-          <p>© 2024 Christ-Pattern Bible College. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Christ-Pattern Bible College. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Globe size={14} />
             <Award size={14} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
+import { AnimatedSection, StaggerContainer, StaggerItem, FadeIn } from '../components/AnimatedSection';
 import {
   ArrowRight,
   MapPin,
@@ -22,7 +23,7 @@ export default function NGOPage() {
           </div>
           
           <div className="max-w-7xl mx-auto px-8 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
-            <div className="pt-20">
+            <AnimatedSection direction="left" className="pt-20">
               <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-[0.2em] block mb-4">ANOTHER HERITAGE OUTREACH</span>
               <h1 className="font-serif text-6xl md:text-8xl text-[#570013] leading-tight mb-8">
                 Wisdom in <span className="italic font-light">Service.</span>
@@ -33,14 +34,14 @@ export default function NGOPage() {
               <button className="flex items-center gap-4 px-8 py-4 bg-[#570013] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#800020] transition-all">
                 Support Our Mission <ArrowRight size={16} />
               </button>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
         {/* Our Sacred Mandate */}
         <section className="py-32 max-w-7xl mx-auto px-8 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-5 relative">
+            <AnimatedSection direction="left" className="lg:col-span-5 relative">
               <div className="aspect-[3/4] overflow-hidden rounded-sm shadow-2xl relative z-10 bg-slate-800">
                  <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1000" className="w-full h-full object-cover grayscale" alt="Community Support" />
               </div>
@@ -48,9 +49,9 @@ export default function NGOPage() {
                  <div className="text-5xl font-serif text-[#570013] mb-2">94%</div>
                  <p className="text-[9px] font-bold uppercase tracking-widest opacity-50 text-[#584141]">Direct Impact Allocation</p>
               </div>
-            </div>
+            </AnimatedSection>
 
-            <div className="lg:col-span-7">
+            <AnimatedSection direction="right" className="lg:col-span-7">
               <h2 className="font-serif text-4xl text-[#570013] mb-8">Our Sacred Mandate</h2>
               <div className="space-y-6 text-[#584141] leading-relaxed opacity-80">
                 <p>We believe that theology is not a basic science contained within leather-bound volumes; it is a living dialogue that must find its highest expression in the alleviation of human suffering.</p>
@@ -67,49 +68,50 @@ export default function NGOPage() {
                   <p className="text-xs opacity-70">Providing physical and community support after conflict or disaster.</p>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
         {/* Current Field Projects */}
         <section className="py-24 bg-[#faf9f5] px-8 md:px-12 max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-16">
+          <AnimatedSection className="flex justify-between items-end mb-16">
             <div>
               <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-widest block mb-2">ACTIVE LABOR</span>
               <h2 className="font-serif text-4xl text-[#570013]">Current Field Projects</h2>
             </div>
             <Link href="#" className="text-[9px] font-bold uppercase tracking-widest text-[#570013] border-b border-[#570013] pb-1">View All Projects</Link>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Project 1 */}
-            <div className="md:col-span-2 relative h-[300px] overflow-hidden group rounded-sm shadow-sm">
+            <StaggerItem direction="up" className="md:col-span-2 relative h-[300px] overflow-hidden group rounded-sm shadow-sm">
               <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200" className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700" alt="Ethiopia Initiative" />
               <div className="absolute inset-0 bg-black/60 p-10 flex flex-col justify-end">
                 <span className="text-[9px] text-[#fed488] font-bold uppercase tracking-widest mb-2">Education • Ethiopia</span>
                 <h3 className="font-serif text-3xl text-white mb-4">The Aksum Library Initiative</h3>
                 <p className="text-white/70 text-sm max-w-md">Restoring and digitizing ancient manuscripts while providing modern primary education to 400 local children.</p>
               </div>
-            </div>
+            </StaggerItem>
 
             {/* Project 2 */}
-            <div className="bg-[#0f172a] p-10 flex flex-col justify-end relative overflow-hidden rounded-sm">
+            <StaggerItem className="bg-[#0f172a] p-10 flex flex-col justify-end relative overflow-hidden rounded-sm">
                <Globe className="absolute top-[-20px] right-[-20px] text-white/5" size={150} />
                <span className="text-[9px] text-[#fed488] font-bold uppercase tracking-widest mb-2">Resilience</span>
                <h3 className="font-serif text-2xl text-white mb-4 leading-tight">Desert Oasis Farming</h3>
                <p className="text-white/60 text-xs">Implementing sustainable water solution systems in semi-arid regions.</p>
-            </div>
+            </StaggerItem>
 
             {/* Project 3 */}
-            <div className="bg-[#efeeea] p-10 rounded-sm">
+            <StaggerItem className="bg-[#efeeea] p-10 rounded-sm">
                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ngo" className="w-20 h-20 mb-6 grayscale" alt="Profile" />
                <h3 className="font-serif text-[#570013] text-xl mb-4">Peace-Maker Circles</h3>
                <p className="text-[#584141] text-xs opacity-70 leading-relaxed mb-6">Conflict mediation training based on historical theological principles of governance.</p>
                <Link href="#" className="text-[#775a19] text-[10px] font-bold uppercase tracking-widest">Learn More</Link>
-            </div>
+
+            </StaggerItem>
 
             {/* Quote Block */}
-            <div className="md:col-span-2 bg-[#570013] p-12 text-white relative overflow-hidden rounded-sm flex items-center">
+            <StaggerItem direction="up" className="md:col-span-2 bg-[#570013] p-12 text-white relative overflow-hidden rounded-sm flex items-center">
               <QuoteIcon className="absolute top-[-30px] left-[-30px] opacity-10" size={180} />
               <div className="relative z-10 text-center mx-auto max-w-md">
                 <blockquote className="font-serif text-2xl italic mb-6">
@@ -117,8 +119,8 @@ export default function NGOPage() {
                 </blockquote>
                 <p className="text-[10px] uppercase tracking-widest font-bold text-[#fed488]">— DR. JULIAN THORNE, FOUNDER</p>
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </section>
 
         {/* Get Involved / Inquiry Form */}
@@ -229,7 +231,7 @@ export default function NGOPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 flex justify-between items-center text-[9px] opacity-40 uppercase tracking-[0.2em]">
-          <p>© 2024 Christ-Pattern Bible College. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Christ-Pattern Bible College. All rights reserved.</p>
           <div className="flex gap-6">
             <span>Give Now</span>
             <span>Volunteer</span>

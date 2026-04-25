@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -23,29 +24,41 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 w-full z-50 bg-[#faf9f5]/80 backdrop-blur-md border-b border-[#e0bfbf]/20">
         <div className="flex justify-between items-center px-4 md:px-12 py-5">
-          <Link href="/">
-            <Image 
-              src="/logo.jpeg" 
-              alt="Christ-Pattern Bible College Logo" 
-              width={50} 
-              height={50} 
-              className="rounded-full object-cover"
-            />
-          </Link>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link href="/">
+              <Image 
+                src="/logo.jpeg" 
+                alt="Christ-Pattern Bible College Logo" 
+                width={50} 
+                height={50} 
+                className="rounded-full object-cover"
+              />
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 font-serif text-[#570013]">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`font-bold ${isActive(link.href)
-                    ? 'border-b-2 border-[#775a19]'
-                    : 'opacity-70 hover:opacity-100 transition-opacity'
-                  }`}
-              >
-                {link.label}
-              </Link>
+              <motion.div key={link.href} whileHover={{ y: -2 }}>
+                <Link
+                  href={link.href}
+                  className={`font-bold inline-block relative ${isActive(link.href)
+                      ? 'text-[#775a19]'
+                      : 'opacity-70 hover:opacity-100 transition-opacity'
+                    }`}
+                >
+                  {link.label}
+                  {isActive(link.href) && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#775a19]"
+                    />
+                  )}
+                </Link>
+              </motion.div>
             ))}
           </div>
 
@@ -83,33 +96,40 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden bg-[#faf9f5] border-t border-[#e0bfbf]/20 px-4 py-4 space-y-3 absolute top-full left-0 right-0 shadow-lg">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block py-2 px-3 rounded font-serif font-bold transition-all ${isActive(link.href)
-                    ? 'bg-[#775a19]/10 text-[#775a19] border-l-4 border-[#775a19]'
-                    : 'text-[#570013] hover:bg-[#e0bfbf]/10'
-                  }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-[#faf9f5] border-t border-[#e0bfbf]/20 px-4 py-4 space-y-3 absolute top-full left-0 right-0 shadow-lg overflow-hidden"
+            >
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block py-2 px-3 rounded font-serif font-bold transition-all ${isActive(link.href)
+                      ? 'bg-[#775a19]/10 text-[#775a19] border-l-4 border-[#775a19]'
+                      : 'text-[#570013] hover:bg-[#e0bfbf]/10'
+                    }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
 
-            {/* Mobile Buttons */}
-            <div className="flex flex-col gap-3 pt-2 border-t border-[#e0bfbf]/20">
-              <button className="w-full px-4 py-2 bg-[#570013] text-white rounded font-medium hover:bg-[#800020] transition-colors">
-                Enroll
-              </button>
-              <button className="w-full px-4 py-2 border border-[#8c7071] text-[#570013] rounded font-medium hover:bg-[#f4f4f0] transition-colors">
-                Donate
-              </button>
-            </div>
-          </div>
-        )}
+              {/* Mobile Buttons */}
+              <div className="flex flex-col gap-3 pt-2 border-t border-[#e0bfbf]/20">
+                <button className="w-full px-4 py-2 bg-[#570013] text-white rounded font-medium hover:bg-[#800020] transition-colors">
+                  Enroll
+                </button>
+                <button className="w-full px-4 py-2 border border-[#8c7071] text-[#570013] rounded font-medium hover:bg-[#f4f4f0] transition-colors">
+                  Donate
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Spacer for fixed navbar */}

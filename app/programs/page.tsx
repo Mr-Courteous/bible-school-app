@@ -55,8 +55,8 @@ export default function ServicesPage() {
                   Explore Curriculum <ArrowRight size={14} />
                 </Link>
               </div>
-              <div className="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-multiply opacity-60" alt="Graduate Studies" />
+              <div className="md:w-1/2 relative">
+                <img src="/set/Set 1_17.jpg" className="w-full h-full object-cover" alt="Graduate Studies" />
               </div>
             </div>
 
@@ -106,8 +106,8 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </div>
-              <div className="md:w-[40%] h-full min-h-[250px]">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800" className="w-full h-full object-cover grayscale" alt="Digital Learning" />
+              <div className="md:w-[40%] h-full min-h-[250px] relative">
+                <img src="/set/Set 1_18.jpg" className="w-full h-full object-cover" alt="Digital Learning" />
               </div>
             </div>
           </div>

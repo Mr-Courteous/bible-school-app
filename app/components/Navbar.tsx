@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -22,7 +23,15 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 w-full z-50 bg-[#faf9f5]/80 backdrop-blur-md border-b border-[#e0bfbf]/20">
         <div className="flex justify-between items-center px-4 md:px-12 py-5">
-          <div className="text-xl md:text-2xl font-bold text-[#570013] font-serif">Christ-Pattern Bible College</div>
+          <Link href="/">
+            <Image 
+              src="/logo.jpeg" 
+              alt="Christ-Pattern Bible College Logo" 
+              width={50} 
+              height={50} 
+              className="rounded-full object-cover"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 font-serif text-[#570013]">

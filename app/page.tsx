@@ -59,7 +59,7 @@ export default function TheologySchool() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div className="md:col-span-7 relative group h-[450px] overflow-hidden rounded-sm">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6AZ1LtcyBZaGrQrlhPcNOw4mxqQwP0ppr4q3-vdyaMdqo53aYEL5ArMEBYTnfdmnwKz_vsEYk0pgpK11tzB4shgafh1DduY4iVu0mEhYSejrPjYfbX39bwwoCy9HL4J1LLQUQQcsBCeVZgZNGESuTRXVwfn8_5-pN44sj6A-C-8J8mIzr4OWydJxBkCo3OIVk6hFUCzbFOy3ubfV4jXaUgCGOyWHBGSsZG5hON_f8E_yalmvB22BYrlZiBY5scOAJ5HClcw_urhqc" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Biblical Theology" />
+            <img src="/set/Set 1_6.jpg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Biblical Theology" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#570013] via-transparent to-transparent opacity-90" />
             <div className="absolute bottom-0 p-10">
               <h3 className="font-serif text-3xl text-white mb-3">Biblical Theology</h3>
@@ -81,7 +81,7 @@ export default function TheologySchool() {
           </div>
 
           <div className="md:col-span-12 relative h-[350px] rounded-sm overflow-hidden group">
-            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1500" className="w-full h-full object-cover brightness-50" alt="Global Service" />
+            <img src="/set/Set 1_23.jpg" className="w-full h-full object-cover brightness-50" alt="Global Service" />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-[#775a19]/30">
               <h3 className="font-serif text-4xl text-white mb-4">Global Service & NGO</h3>
               <p className="text-white/90 max-w-2xl mb-8">Our theology is lived out through our global NGO initiatives, providing relief and education where it's needed most.</p>
@@ -106,6 +106,77 @@ export default function TheologySchool() {
         </div>
       </section>
 
+      {/* Alumni Gallery Section */}
+      <section className="py-24 px-8 md:px-12 max-w-7xl mx-auto">
+        <div className="mb-16 text-center">
+          <h2 className="font-serif text-4xl text-[#570013] mb-4">Our Alumni</h2>
+          <div className="w-16 h-1 bg-[#775a19] mx-auto mb-6" />
+          <p className="text-[#584141] max-w-2xl mx-auto">
+            Celebrate the journey of our past students who have graduated and moved on to impactful ministries worldwide. 
+            These faces represent the rich legacy and ongoing mission of Christ-Pattern Bible College since 2002.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid gap-4">
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_28.jpg" alt="Graduate 1" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_29.jpg" alt="Graduate 2" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_30.jpg" alt="Graduate 3" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          </div>
+          <div className="grid gap-4">
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_31.jpg" alt="Graduate 4" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_32.jpg" alt="Graduate 5" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_33.jpg" alt="Graduate 6" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          </div>
+          <div className="grid gap-4">
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_34.jpg" alt="Graduate 7" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_35.jpg" alt="Graduate 8" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_36.jpg" alt="Graduate 9" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          </div>
+          <div className="grid gap-4">
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_37.jpg" alt="Graduate 10" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_38.jpg" alt="Graduate 11" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <img className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" src="/set/Set 1_39.jpg" alt="Graduate 12" />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* News Section */}
       <section className="py-24 px-8 md:px-12 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-12">
@@ -121,17 +192,17 @@ export default function TheologySchool() {
             {
               title: "The Discovery of the lost Galatians Fragment",
               tag: "Faculty Research",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCc5z-Wz39zWEiIm_4ShIi-k8w5mbRn9Xf23GpdX3iPZ-5YWi-2Ick0fXmrW7qjcJHdgnezBa69cr-wEM7Qom851e3a8k6G4Z69eyqmNNvY8gCR5iHV2qm6OH793qDCWNz0x-Lf16iCObKGgkwq_u3QNZ8rJO_TwytPU6U_z58iHDBfuiyas9rl_rp9W9yDGh_9YuP_qPc8_KmCbiMxsRfwc6ncp4RunDVvBtE77b1SCrCwDLm-sLTZlkI_4GnYQ4WYcAvBHb6UpOHB"
+              img: "/set/Set 1_24.jpg"
             },
             {
               title: "Annual Symposium: Faith in the Age of AI",
               tag: "Events",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCaNQz7artjM4f4l7P3qw080ZOiBxIUlLr8rFc94nFpyxIXPza3a7iaS7JbJRMnmEwveG0nrbbinnNlmw3n0-i9p2B1tALetl9xEeV3Fy1oMy2M0xV-exvfTEusj8-NZdFChUDNpPOSUXy1XYFrVgMxsF8A4TKvpd06KAsWRzwbnblkYHpazAUFMkAGBM2muZqsJmiLh0NSK_exKNEdWkmUOQzmhY_tYycieC7EO3k_6PG-zzftPYmG0xhWX15boN-2dgscvepPHFFA"
+              img: "/set/Set 1_25.jpg"
             },
             {
               title: "Extending the Scriptorium to South Sudan",
               tag: "NGO Work",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBXyu9jZK4DK4xB-VRNUTHs0igS82wgY-2MVgVqJMqq5_GT0-hBTMh6QpJdohrnDVYvNIz2MBjyFWNlOcCRR4mdkp3oz2K5e7EvSN2WnJ9T9zXBla_v6N8TOGsm7TavsYn1NLbmea-2SJEO82tI8wCK6p1K5bEsKdpRBz0KVJDkzmKggEkoxbRzG1Wiv8H8uIuQEPHM8CqP8dZKLPOVVQS_gXMSpyZsCVKwBFFQyPo4ZO1eJ5TAQXet8qjnX9lF5se1_2MVt04LGjT9"
+              img: "/set/Set 1_26.jpg"
             }
           ].map((post, i) => (
             <div key={i} className="group">

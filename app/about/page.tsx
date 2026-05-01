@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import { AnimatedSection, StaggerContainer, StaggerItem, FadeIn, ScaleIn } from '../components/AnimatedSection';
 import { ShieldCheck, Globe, GraduationCap, Award } from 'lucide-react';
@@ -45,13 +46,28 @@ export default function AboutPage() {
             <div className="lg:col-span-12 mt-12">
               <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <StaggerItem direction="up" className="aspect-video bg-stone-200 overflow-hidden rounded-sm group relative">
-                  <img src="/set/Set 1_14.jpg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Early Beginnings" />
+                  <Image
+                    src="/set/Set 1_14.jpg"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    alt="Early Beginnings"
+                  />
                 </StaggerItem>
                 <StaggerItem direction="up" className="aspect-video bg-stone-200 overflow-hidden rounded-sm group relative">
-                  <img src="/set/Set 1_15.jpg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Campus Expansion" />
+                  <Image
+                    src="/set/Set 1_15.jpg"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    alt="Campus Expansion"
+                  />
                 </StaggerItem>
                 <StaggerItem direction="up" className="aspect-video bg-stone-200 overflow-hidden rounded-sm group relative">
-                  <img src="/set/Set 1_16.jpg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Graduation Milestones" />
+                  <Image
+                    src="/set/Set 1_16.jpg"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    alt="Graduation Milestones"
+                  />
                 </StaggerItem>
               </StaggerContainer>
             </div>
@@ -72,10 +88,12 @@ export default function AboutPage() {
             </AnimatedSection>
             <AnimatedSection direction="right" className="lg:col-span-5 relative">
               <div className="aspect-[4/5] bg-stone-200 overflow-hidden rounded-sm shadow-2xl relative z-10">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1000"
                   alt="Historical Legacy"
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  className="object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -left-12 bg-[#570013] text-white px-10 py-6 font-serif italic text-2xl shadow-xl z-20">
@@ -116,7 +134,7 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline Section */}
-        <section className="bg-[#f4f4f0] py-32 px-8">
+        {/* <section className="bg-[#f4f4f0] py-32 px-8">
           <AnimatedSection className="max-w-3xl mx-auto text-center mb-20">
             <h2 className="font-serif text-4xl text-[#570013] border-b border-[#775a19] inline-block pb-2">A Legacy of Light</h2>
           </AnimatedSection>
@@ -143,38 +161,48 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* Faculty Section */}
+        {/* Governing Council Section */}
         <section className="py-32 px-8 md:px-12 max-w-7xl mx-auto">
-          <AnimatedSection className="flex justify-between items-end mb-16">
+          <AnimatedSection className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
             <div>
-              <h2 className="font-serif text-5xl text-[#570013] mb-4">Distinguished Faculty</h2>
-              <p className="text-[#584141] opacity-60">Guided by masters of historical and modern divinity.</p>
+              <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-[0.2em] block mb-4">Leadership & Governance</span>
+              <h2 className="font-serif text-5xl md:text-6xl text-[#570013] mb-4">Governing Council</h2>
+              <p className="text-[#584141] opacity-70 max-w-xl">Guided by visionary leaders dedicated to spiritual excellence and academic rigor.</p>
             </div>
-            <Link href="#" className="text-[10px] font-bold uppercase tracking-widest text-[#570013] border-b border-[#570013]">Full Directory</Link>
           </AnimatedSection>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
             {[
-              { name: "Dr. Alistair Thorne", role: "DEAN OF PATRISTICS", desc: "Specializing in early Eastern monasticism and the linguistic development of the septuagint.", img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alistair" },
-              { name: "Dr. Sarah Jenkins", role: "PROFESSOR OF ETHICS", desc: "A leading voice in bioethics and the intersection of technology and religious identity.", img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah" },
-              { name: "Rev. Julian Vance", role: "HOMILETICS CHAIR", desc: "Dedicated to the art of the sermon and the formation of liturgical traditions in rural communities.", img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Julian" }
+              { name: "Pastor Dr. Henry Olubunmi Adesemoye", role: "Board Member", img: "/boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg" },
+              { name: "Patron Dr. Isaac .O. Ogundipe", role: "Patron", img: "/boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg" },
+              { name: "Pastor Dr S A Ajifolokun", role: "Chairman Governing Council", img: "/boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg" },
+              { name: "Evang Dr. Mrs Victoria Oluremi Ajifolokun", role: "Co-founder", img: "/boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg" },
+              { name: "Pastor Festus Adagunodo", role: "Senior Pastor Redemption for the Nations, Ilesa, Nigeria", img: "/boards/WhatsApp Image 2026-04-28 at 10.06.36 PM.jpeg" },
+              { name: "Pastor Dr. F.F Adagunodo", role: "Board Secretary", img: "/boards/WhatsApp Image 2026-04-28 at 10.12.06 PM.jpeg" },
+              { name: "Oba HRH Dr. Peter Babatunde Ojo", role: "The Akimo of Ikimo Ijesa (Board Member)", img: "/boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg" },
+              { name: "Bro Engr Emmanuel E. Ajifolokun Oluremi", role: "Board Member", img: "/boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg" }
             ].map((member, i) => (
               <StaggerItem key={i}>
-                <div className="aspect-square bg-slate-900 overflow-hidden mb-6 group">
-                  <img src={member.img} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt={member.name} />
+                <div className="aspect-[4/5] bg-stone-100 overflow-hidden mb-6 group relative shadow-md rounded-sm">
+                  <Image
+                    src={member.img}
+                    fill
+                    className="object-cover transition-all duration-700 group-hover:scale-105"
+                    alt={member.name}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#570013]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h4 className="font-serif text-2xl text-[#570013] mb-1">{member.name}</h4>
+                <h4 className="font-serif text-xl text-[#570013] mb-1">{member.name}</h4>
                 <p className="text-[10px] font-bold text-[#775a19] uppercase tracking-widest mb-4">{member.role}</p>
-                <p className="text-xs text-[#584141] opacity-70 leading-relaxed">{member.desc}</p>
               </StaggerItem>
             ))}
           </StaggerContainer>
         </section>
 
         {/* Global Accreditation Section */}
-        <section className="py-24 px-8 md:px-12 max-w-7xl mx-auto border-t border-[#e0bfbf]/20">
+        {/* <section className="py-24 px-8 md:px-12 max-w-7xl mx-auto border-t border-[#e0bfbf]/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <AnimatedSection direction="left" className="lg:col-span-8">
               <h3 className="font-serif text-3xl text-[#570013] mb-6">Global Accreditation</h3>
@@ -207,7 +235,7 @@ export default function AboutPage() {
               </div>
             </ScaleIn>
           </div>
-        </section>
+        </section> */}
       </main>
 
       {/* Footer */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import { AnimatedSection, StaggerContainer, StaggerItem, FadeIn } from '../components/AnimatedSection';
 import {
@@ -17,142 +18,143 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[#faf9f5] font-sans selection:bg-[#fed488]">
       <Navbar />
-        {/* Header Section */}
-        <section className="max-w-7xl mx-auto px-8 md:px-12 mb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection direction="left">
-              <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-[0.2em] block mb-4">Connect with Scholarship</span>
-              <h1 className="font-serif text-5xl md:text-6xl text-[#570013] leading-tight mb-8">
-                Inquiry & Dialogue
-              </h1>
-              <p className="text-[#584141] text-lg leading-relaxed opacity-70 max-w-md">
-                Whether you are a prospective student seeking spiritual growth, a scholar looking for collaboration, or an alumnus reconnecting, our doors—and our minds—remain open to your voice.
-              </p>
-            </AnimatedSection>
-            <AnimatedSection direction="right" className="aspect-video bg-stone-200 rounded-sm overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1000" 
-                alt="Library Sanctuary" 
-                className="w-full h-full object-cover grayscale brightness-75"
-              />
-            </AnimatedSection>
-          </div>
-        </section>
+      {/* Header Section */}
+      <section className="max-w-7xl mx-auto px-8 md:px-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <AnimatedSection direction="left">
+            <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-[0.2em] block mb-4">Connect with Scholarship</span>
+            <h1 className="font-serif text-5xl md:text-6xl text-[#570013] leading-tight mb-8">
+              Inquiry & Dialogue
+            </h1>
+            <p className="text-[#584141] text-lg leading-relaxed opacity-70 max-w-md">
+              Whether you are a prospective student seeking spiritual growth, a scholar looking for collaboration, or an alumnus reconnecting, our doors—and our minds—remain open to your voice.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection direction="right" className="aspect-video bg-stone-200 rounded-sm overflow-hidden shadow-2xl relative">
+            <Image
+              src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1000"
+              alt="Library Sanctuary"
+              fill
+              className="object-cover grayscale brightness-75"
+            />
+          </AnimatedSection>
+        </div>
+      </section>
 
-        {/* Form and Info Section */}
-        <section className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            {/* Contact Form */}
-            <AnimatedSection direction="left" className="lg:col-span-7 bg-white p-12 shadow-sm border border-[#e0bfbf]/20">
-              <h2 className="font-serif text-3xl text-[#570013] mb-8">Send a Petition</h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Given Name</label>
-                    <input type="text" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Theophilus" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Surname</label>
-                    <input type="text" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Student" />
-                  </div>
+      {/* Form and Info Section */}
+      <section className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          {/* Contact Form */}
+          <AnimatedSection direction="left" className="lg:col-span-7 bg-white p-12 shadow-sm border border-[#e0bfbf]/20">
+            <h2 className="font-serif text-3xl text-[#570013] mb-8">Send a Petition</h2>
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Given Name</label>
+                  <input type="text" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Theophilus" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Electronic Address</label>
-                  <input type="email" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="scholar@scriptorium.edu" />
+                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Surname</label>
+                  <input type="text" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Student" />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Nature of Inquiry</label>
-                  <select className="w-full bg-[#f4f4f0] p-4 text-xs outline-none appearance-none">
-                    <option>Admissions Inquiry</option>
-                    <option>Research Collaboration</option>
-                    <option>NGO Partnership</option>
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Message</label>
-                  <textarea rows={5} className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Your thoughts or questions..."></textarea>
-                </div>
-                <button className="flex items-center gap-3 px-10 py-4 bg-[#570013] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#800020] transition-all group">
-                  Submit Inquiry <Send size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </form>
-            </AnimatedSection>
+              </div>
+              <div className="space-y-2">
+                <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Electronic Address</label>
+                <input type="email" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="scholar@scriptorium.edu" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Nature of Inquiry</label>
+                <select className="w-full bg-[#f4f4f0] p-4 text-xs outline-none appearance-none">
+                  <option>Admissions Inquiry</option>
+                  <option>Research Collaboration</option>
+                  <option>NGO Partnership</option>
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Message</label>
+                <textarea rows={5} className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Your thoughts or questions..."></textarea>
+              </div>
+              <button className="flex items-center gap-3 px-10 py-4 bg-[#570013] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#800020] transition-all group">
+                Submit Inquiry <Send size={14} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </form>
+          </AnimatedSection>
 
-            {/* Side Info */}
-            <AnimatedSection direction="right" className="lg:col-span-5 space-y-12">
-              <div>
-                <h3 className="font-serif text-2xl text-[#570013] mb-8">Our Scriptoriums</h3>
-                <div className="space-y-8">
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 bg-[#efeeea] rounded-full flex items-center justify-center text-[#775a19] shrink-0">
-                      <MapPin size={18} />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[#570013] text-sm">Permanent Address Site</h4>
-                      <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">
-                        V.I.O house area, No 1, Abiola Adedoja Crescent,<br/>
-                        back CAC Boluwatife District Headquarters, Oke-Ayo,<br/>
-                        Odi-olowo Community, ILESA, Osun State, Nigeria.
-                      </p>
-                      <div className="text-xs text-[#775a19] mt-3 font-bold space-y-1">
-                        <p>08033514808</p>
-                        <p>08056404396</p>
-                        <p>08038571189</p>
-                      </div>
+          {/* Side Info */}
+          <AnimatedSection direction="right" className="lg:col-span-5 space-y-12">
+            <div>
+              <h3 className="font-serif text-2xl text-[#570013] mb-8">Our Scriptoriums</h3>
+              <div className="space-y-8">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-[#efeeea] rounded-full flex items-center justify-center text-[#775a19] shrink-0">
+                    <MapPin size={18} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#570013] text-sm">Permanent Address Site</h4>
+                    <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">
+                      V.I.O house area, No 1, Abiola Adedoja Crescent,<br />
+                      back CAC Boluwatife District Headquarters, Oke-Ayo,<br />
+                      Odi-olowo Community, ILESA, Osun State, Nigeria.
+                    </p>
+                    <div className="text-xs text-[#775a19] mt-3 font-bold space-y-1">
+                      <p>08033514808</p>
+                      <p>08056404396</p>
+                      <p>08038571189</p>
                     </div>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 bg-[#efeeea] rounded-full flex items-center justify-center text-[#775a19] shrink-0">
-                      <MapPin size={18} />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[#570013] text-sm">Ongoing Construction Site</h4>
-                      <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">
-                        Boluwatife Gospel music Dynasty Campground,<br/>
-                        Ere-Ijesa, Oriade Local Government,<br/>
-                        Osun State, Nigeria.
-                      </p>
-                    </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-[#efeeea] rounded-full flex items-center justify-center text-[#775a19] shrink-0">
+                    <MapPin size={18} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#570013] text-sm">Ongoing Construction Site</h4>
+                    <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">
+                      Boluwatife Gospel music Dynasty Campground,<br />
+                      Ere-Ijesa, Oriade Local Government,<br />
+                      Osun State, Nigeria.
+                    </p>
                   </div>
                 </div>
               </div>
-
-              <div className="bg-[#fdf9f0] p-10 border border-[#775a19]/10">
-                <h4 className="font-serif italic text-[#775a19] text-xl mb-6">Direct Channels</h4>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-[#570013]/70">
-                    <Mail size={14} className="text-[#775a19]" /> admissions@scriptorium.edu
-                  </li>
-                  <li className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-[#570013]/70">
-                    <Globe size={14} className="text-[#775a19]" /> ngo-partnerships@scriptorium.edu
-                  </li>
-                  <li className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-[#570013]/70">
-                    <MessageSquareHeart size={14} className="text-[#775a19]" /> 24/7 Spiritual Support Line
-                  </li>
-                </ul>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-
-        {/* Map Placeholder */}
-        <FadeIn className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
-          <div className="h-[400px] bg-[#e5e4de] relative overflow-hidden group grayscale opacity-60 hover:opacity-100 transition-opacity">
-            <div className="absolute inset-0 flex items-center justify-center">
-               <div className="bg-white p-6 shadow-xl relative z-10 text-center">
-                  <MapPin size={24} className="text-[#570013] mx-auto mb-2" />
-                  <p className="font-serif text-[#570013] font-bold">The Great Hall</p>
-                  <p className="text-[9px] uppercase tracking-widest opacity-60">Navigate to Campus</p>
-               </div>
             </div>
-            {/* Faux Map Elements */}
-            <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-[#570013] rounded-full animate-pulse" />
-            <div className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-[#570013] rounded-full opacity-40" />
-          </div>
-        </FadeIn>
 
-        {/* FAQ Section */}
-        <section className="max-w-4xl mx-auto px-8 md:px-12 mb-24">
+            <div className="bg-[#fdf9f0] p-10 border border-[#775a19]/10">
+              <h4 className="font-serif italic text-[#775a19] text-xl mb-6">Direct Channels</h4>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-[#570013]/70">
+                  <Mail size={14} className="text-[#775a19]" /> admissions@scriptorium.edu
+                </li>
+                <li className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-[#570013]/70">
+                  <Globe size={14} className="text-[#775a19]" /> ngo-partnerships@scriptorium.edu
+                </li>
+                <li className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-[#570013]/70">
+                  <MessageSquareHeart size={14} className="text-[#775a19]" /> 24/7 Spiritual Support Line
+                </li>
+              </ul>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Map Placeholder */}
+      <FadeIn className="max-w-7xl mx-auto px-8 md:px-12 mb-32">
+        <div className="h-[400px] bg-[#e5e4de] relative overflow-hidden group grayscale opacity-60 hover:opacity-100 transition-opacity">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-white p-6 shadow-xl relative z-10 text-center">
+              <MapPin size={24} className="text-[#570013] mx-auto mb-2" />
+              <p className="font-serif text-[#570013] font-bold">The Great Hall</p>
+              <p className="text-[9px] uppercase tracking-widest opacity-60">Navigate to Campus</p>
+            </div>
+          </div>
+          {/* Faux Map Elements */}
+          <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-[#570013] rounded-full animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-[#570013] rounded-full opacity-40" />
+        </div>
+      </FadeIn>
+
+      {/* FAQ Section */}
+      {/* <section className="max-w-4xl mx-auto px-8 md:px-12 mb-24">
           <AnimatedSection className="text-center mb-16">
             <h2 className="font-serif text-4xl text-[#570013] mb-4">Scholarly Inquiries (FAQ)</h2>
             <p className="text-xs text-[#584141] opacity-60 uppercase tracking-widest">Common questions regarding our heritage and admissions</p>
@@ -184,7 +186,7 @@ export default function ContactPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-        </section>
+        </section> */}
 
       {/* Footer (Simplified as per screenshot) */}
       <footer className="bg-[#faf9f5] pt-24 pb-12 px-8 md:px-12 border-t border-[#e0bfbf]/20">

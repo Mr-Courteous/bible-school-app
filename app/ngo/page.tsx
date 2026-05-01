@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import { AnimatedSection, StaggerContainer, StaggerItem, FadeIn } from '../components/AnimatedSection';
 import {
@@ -43,7 +44,12 @@ export default function NGOPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <AnimatedSection direction="left" className="lg:col-span-5 relative">
               <div className="aspect-[3/4] overflow-hidden rounded-sm shadow-2xl relative z-10 bg-slate-800">
-                 <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1000" className="w-full h-full object-cover grayscale" alt="Community Support" />
+                 <Image 
+                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1000" 
+                   fill
+                   className="object-cover" 
+                   alt="Community Support" 
+                 />
               </div>
               <div className="absolute -bottom-10 -right-10 bg-[#efeeea] p-10 shadow-xl z-20 border border-[#e0bfbf]/20">
                  <div className="text-5xl font-serif text-[#570013] mb-2">94%</div>
@@ -55,7 +61,7 @@ export default function NGOPage() {
               <h2 className="font-serif text-4xl text-[#570013] mb-8">Our Sacred Mandate</h2>
               <div className="space-y-6 text-[#584141] leading-relaxed opacity-80">
                 <p>We believe that theology is not a basic science contained within leather-bound volumes; it is a living dialogue that must find its highest expression in the alleviation of human suffering.</p>
-                <p>The Digital Scriptorium NGO was founded to provide a structural bridge between the wealth of academic resources and the urgent needs of marginalized communities. We focus on three pillars: transformation, education, restoration, and resilience.</p>
+                <p>Another Heritage Outreach was founded to provide a structural bridge between spiritual resources and the urgent needs of marginalized communities. We focus on four pillars: transformation, education, restoration, and resilience.</p>
               </div>
 
               <div className="grid grid-cols-2 gap-10 mt-12">
@@ -85,7 +91,12 @@ export default function NGOPage() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Project 1 */}
             <StaggerItem direction="up" className="md:col-span-2 relative h-[300px] overflow-hidden group rounded-sm shadow-sm">
-              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200" className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700" alt="Ethiopia Initiative" />
+              <Image 
+                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200" 
+                fill
+                className="object-cover transition-transform group-hover:scale-105 duration-700" 
+                alt="Ethiopia Initiative" 
+              />
               <div className="absolute inset-0 bg-black/60 p-10 flex flex-col justify-end">
                 <span className="text-[9px] text-[#fed488] font-bold uppercase tracking-widest mb-2">Education • Ethiopia</span>
                 <h3 className="font-serif text-3xl text-white mb-4">The Aksum Library Initiative</h3>
@@ -103,11 +114,16 @@ export default function NGOPage() {
 
             {/* Project 3 */}
             <StaggerItem className="bg-[#efeeea] p-10 rounded-sm">
-               <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ngo" className="w-20 h-20 mb-6 grayscale" alt="Profile" />
+               <Image 
+                 src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ngo" 
+                 width={80} 
+                 height={80} 
+                 className="mb-6" 
+                 alt="Profile" 
+               />
                <h3 className="font-serif text-[#570013] text-xl mb-4">Peace-Maker Circles</h3>
                <p className="text-[#584141] text-xs opacity-70 leading-relaxed mb-6">Conflict mediation training based on historical theological principles of governance.</p>
                <Link href="#" className="text-[#775a19] text-[10px] font-bold uppercase tracking-widest">Learn More</Link>
-
             </StaggerItem>
 
             {/* Quote Block */}
@@ -117,7 +133,17 @@ export default function NGOPage() {
                 <blockquote className="font-serif text-2xl italic mb-6">
                   "Scholarship without empathy is mere vanity; service without wisdom is fragile. We combine both for lasting transformation."
                 </blockquote>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-[#fed488]">— DR. JULIAN THORNE, FOUNDER</p>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full overflow-hidden mb-3 border border-[#fed488]/30 relative">
+                    <Image 
+                      src="/boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg" 
+                      fill
+                      className="object-cover" 
+                      alt="Co-founder" 
+                    />
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest font-bold text-[#fed488]">— EVANG DR. MRS VICTORIA OLUREMI AJIFOLOKUN, CO-FOUNDER</p>
+                </div>
               </div>
             </StaggerItem>
           </StaggerContainer>

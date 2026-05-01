@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView, Variants, AnimatePresence } from "framer-motion";
-import { useRef, ReactNode, useState, useEffect } from "react";
+import { motion, Variants } from "framer-motion";
+import { ReactNode, useState, useEffect } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -11,148 +11,59 @@ interface AnimatedSectionProps {
   duration?: number;
 }
 
+// Entrance animations disabled
 export function AnimatedSection({
   children,
   className = "",
-  delay = 0,
-  direction = "up",
-  duration = 0.8,
 }: AnimatedSectionProps) {
-  const directionMap: Record<string, { x: number; y: number }> = {
-    up: { x: 0, y: 50 },
-    down: { x: 0, y: -50 },
-    left: { x: 50, y: 0 },
-    right: { x: -50, y: 0 },
-    none: { x: 0, y: 0 },
-  };
-
-  const { x, y } = directionMap[direction];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x, y }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration, delay, ease: [0.21, 1.02, 0.47, 0.98] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-interface StaggerContainerProps {
-  children: ReactNode;
-  className?: string;
-  staggerDelay?: number;
+  return <div className={className}>{children}</div>;
 }
 
 export function StaggerContainer({
   children,
   className = "",
-  staggerDelay = 0.15,
-}: StaggerContainerProps) {
-  const containerVariants: Variants = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: staggerDelay },
-    },
-  };
-
-  return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-interface StaggerItemProps {
+}: {
   children: ReactNode;
   className?: string;
-  direction?: "up" | "left" | "right" | "none";
+  staggerDelay?: number;
+}) {
+  return <div className={className}>{children}</div>;
 }
 
 export function StaggerItem({
   children,
   className = "",
-  direction = "up",
-}: StaggerItemProps) {
-  const directionMap: Record<string, { x: number; y: number }> = {
-    up: { x: 0, y: 30 },
-    left: { x: 30, y: 0 },
-    right: { x: -30, y: 0 },
-    none: { x: 0, y: 0 },
-  };
-
-  const { x, y } = directionMap[direction];
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, x, y },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.21, 1.02, 0.47, 0.98] },
-    },
-  };
-
-  return (
-    <motion.div variants={itemVariants} className={className}>
-      {children}
-    </motion.div>
-  );
+}: {
+  children: ReactNode;
+  className?: string;
+  direction?: "up" | "left" | "right" | "none";
+}) {
+  return <div className={className}>{children}</div>;
 }
 
 export function FadeIn({
   children,
   className = "",
-  delay = 0,
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
 }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1, delay, ease: "easeOut" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 export function ScaleIn({
   children,
   className = "",
-  delay = 0,
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
 }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, delay, ease: [0.21, 1.02, 0.47, 0.98] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
+// BUBBLES - KEPT as requested
 export function FloatingBubbles() {
   const [bubbles, setBubbles] = useState<any[]>([]);
 
@@ -170,7 +81,7 @@ export function FloatingBubbles() {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[5]">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
       {bubbles.map((bubble, i) => (
         <motion.div
           key={i}
@@ -203,6 +114,7 @@ export function FloatingBubbles() {
   );
 }
 
+// Interactive animations disabled
 export function LiveIcon({
   children,
   className = "",
@@ -210,24 +122,7 @@ export function LiveIcon({
   children: ReactNode;
   className?: string;
 }) {
-  return (
-    <motion.div
-      animate={{
-        scale: [1, 1.15, 1],
-        rotate: [0, 8, -8, 0],
-        filter: ["drop-shadow(0 0 0px rgba(119, 90, 25, 0))", "drop-shadow(0 0 8px rgba(119, 90, 25, 0.3))", "drop-shadow(0 0 0px rgba(119, 90, 25, 0))"]
-      }}
-      transition={{
-        duration: 2.5,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-      whileHover={{ scale: 1.2, rotate: 10 }}
-      className={`inline-block ${className}`}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={`inline-block ${className}`}>{children}</div>;
 }
 
 export function PulseCircle({ className = "" }: { className?: string }) {
@@ -270,27 +165,12 @@ export function MovingGradient() {
 export function Floating({
   children,
   className = "",
-  duration = 3,
 }: {
   children: ReactNode;
   className?: string;
   duration?: number;
 }) {
-  return (
-    <motion.div
-      animate={{
-        y: [0, -10, 0],
-      }}
-      transition={{
-        duration,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 export function HoverCard({
@@ -300,15 +180,7 @@ export function HoverCard({
   children: ReactNode;
   className?: string;
 }) {
-  return (
-    <motion.div
-      whileHover={{ y: -5, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)" }}
-      transition={{ duration: 0.3 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 export function AnimatedIcon({
@@ -318,13 +190,5 @@ export function AnimatedIcon({
   children: ReactNode;
   className?: string;
 }) {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.2, rotate: 5 }}
-      whileTap={{ scale: 0.9 }}
-      className={`inline-block ${className}`}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={`inline-block ${className}`}>{children}</div>;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import { AnimatedSection, StaggerContainer, StaggerItem, ScaleIn } from '../components/AnimatedSection';
 import {
@@ -54,8 +55,13 @@ export default function ServicesPage() {
                   Explore Curriculum <ArrowRight size={14} />
                 </Link>
               </div>
-              <div className="md:w-1/2 relative">
-                <img src="/set/Set 1_17.jpg" className="w-full h-full object-cover" alt="Graduate Studies" />
+              <div className="md:w-1/2 relative min-h-[300px]">
+                <Image 
+                  src="/set/Set 1_17.jpg" 
+                  fill
+                  className="object-cover" 
+                  alt="Graduate Studies" 
+                />
               </div>
             </StaggerItem>
 
@@ -67,9 +73,9 @@ export default function ServicesPage() {
                   A comprehensive introduction to the liberal arts seen through a theological lens. Form your worldview with clarity and conviction.
                 </p>
               </div>
-              <button className="w-full py-4 bg-white text-[#570013] font-bold text-xs uppercase tracking-widest hover:bg-[#fed488] transition-colors">
+              <Link href="/apply" className="w-full py-4 bg-white text-[#570013] font-bold text-xs uppercase tracking-widest hover:bg-[#fed488] transition-colors text-center">
                 Apply Now
-              </button>
+              </Link>
             </StaggerItem>
 
             {/* Specialized Certificates */}
@@ -106,7 +112,12 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className="md:w-[40%] h-full min-h-[250px] relative">
-                <img src="/set/Set 1_18.jpg" className="w-full h-full object-cover" alt="Digital Learning" />
+                <Image 
+                  src="/set/Set 1_18.jpg" 
+                  fill
+                  className="object-cover" 
+                  alt="Digital Learning" 
+                />
               </div>
             </StaggerItem>
           </StaggerContainer>
@@ -159,8 +170,8 @@ export default function ServicesPage() {
           <div className="bg-[#570013] p-16 text-center text-white relative overflow-hidden rounded-sm">
             <h2 className="font-serif text-4xl mb-10 relative z-10">Ready to begin your scholarly journey?</h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-              <button className="px-8 py-4 bg-[#775a19] text-white font-bold text-[10px] uppercase tracking-widest hover:bg-[#8e6b20] transition-colors">Download Prospectus</button>
-              <button className="px-8 py-4 border border-white/30 text-white font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-colors">Speak with Admissions</button>
+              <Link href="/apply" className="px-8 py-4 bg-[#775a19] text-white font-bold text-[10px] uppercase tracking-widest hover:bg-[#8e6b20] transition-colors">Apply Now</Link>
+              <Link href="/contact" className="px-8 py-4 border border-white/30 text-white font-bold text-[10px] uppercase tracking-widest hover:bg-white/10 transition-colors">Speak with Admissions</Link>
             </div>
           </div>
         </AnimatedSection>

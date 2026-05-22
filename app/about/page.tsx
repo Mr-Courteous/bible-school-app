@@ -182,7 +182,11 @@ export default function AboutPage() {
               { name: "Pastor Festus Adagunodo", role: "Senior Pastor Redemption for the Nations, Ilesa, Nigeria", img: "/boards/WhatsApp Image 2026-04-28 at 10.06.36 PM.jpeg" },
               { name: "Pastor Dr. F.F Adagunodo", role: "Board Secretary", img: "/boards/WhatsApp Image 2026-04-28 at 10.12.06 PM.jpeg" },
               { name: "Oba HRH Dr. Peter Babatunde Ojo", role: "The Akimo of Ikimo Ijesa (Board Member)", img: "/boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg" },
-              { name: "Bro Engr Emmanuel E. Ajifolokun Oluremi", role: "Board Member", img: "/boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg" }
+              { name: "Bro Engr Emmanuel E. Ajifolokun Oluremi", role: "Board Member", img: "/boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg" },
+              { name: "", role: "Board Member", img: "/boards/WhatsApp Image 2026-05-04 at 2.55.35 PM.jpeg" },
+
+              { name: "Pastor Dr J.A. Adeleye", role: "Board Member", img: "/boards/WhatsApp Image 2026-05-07 at 8.38.20 PM.jpeg" },
+
             ].map((member, i) => (
               <StaggerItem key={i}>
                 <div className="aspect-[4/5] bg-stone-100 overflow-hidden mb-6 group relative shadow-md rounded-sm">

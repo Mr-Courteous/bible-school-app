@@ -57,13 +57,13 @@ export default function TheologySchool() {
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link 
+            <Link
               href="/apply"
               className="px-10 py-4 bg-[#570013] text-white font-bold rounded-sm hover:scale-105 transition-transform"
             >
               Apply Now
             </Link>
-            <Link 
+            <Link
               href="/about"
               className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-sm hover:bg-white/20 transition-all"
             >
@@ -85,11 +85,11 @@ export default function TheologySchool() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           <ScaleIn className="md:col-span-7 relative group h-[450px] overflow-hidden rounded-sm">
-            <Image 
-              src="/set/Set 1_6.jpg" 
+            <Image
+              src="/set/Set 1_6.jpg"
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110" 
-              alt="Biblical Theology" 
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="Biblical Theology"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#570013] via-transparent to-transparent opacity-90" />
             <div className="absolute bottom-0 p-10">
@@ -121,11 +121,11 @@ export default function TheologySchool() {
           </StaggerContainer>
 
           <AnimatedSection className="md:col-span-12 relative h-[350px] rounded-sm overflow-hidden group">
-            <Image 
-              src="/set/Set 1_23.jpg" 
+            <Image
+              src="/set/Set 1_23.jpg"
               fill
-              className="object-cover brightness-50" 
-              alt="Global Service" 
+              className="object-cover brightness-50"
+              alt="Global Service"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-[#775a19]/30">
               <h3 className="font-serif text-4xl text-white mb-4">Global Service &amp; NGO</h3>
@@ -141,16 +141,16 @@ export default function TheologySchool() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <AnimatedSection direction="left" className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-sm shadow-2xl relative z-10 bg-stone-100">
-               <Image 
-                 src="/boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg" 
-                 fill
-                 className="object-cover" 
-                 alt="Chairman Governing Council" 
-               />
+              <Image
+                src="/boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg"
+                fill
+                className="object-cover"
+                alt="Chairman Governing Council"
+              />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-[#570013] text-white p-8 shadow-xl z-20">
-               <h4 className="font-serif text-xl mb-1">Pastor Dr S A Ajifolokun</h4>
-               <p className="text-[10px] font-bold uppercase tracking-widest opacity-70">Chairman Governing Council</p>
+              <h4 className="font-serif text-xl mb-1">Pastor Dr S A Ajifolokun</h4>
+              <p className="text-[10px] font-bold uppercase tracking-widest opacity-70">Chairman Governing Council</p>
             </div>
           </AnimatedSection>
 
@@ -158,17 +158,17 @@ export default function TheologySchool() {
             <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-[0.2em] block mb-4">Leadership Voice</span>
             <h2 className="font-serif text-4xl md:text-5xl text-[#570013] mb-8">Guided by Divine Vision and Academic Excellence</h2>
             <p className="text-[#584141] text-lg leading-relaxed opacity-80 mb-10">
-              Our Governing Council provides the spiritual oversight and strategic direction necessary to ensure Christ-Pattern Bible College remains a beacon of theological integrity. 
+              Our Governing Council provides the spiritual oversight and strategic direction necessary to ensure Christ-Pattern Bible College remains a beacon of theological integrity.
             </p>
             <div className="grid grid-cols-2 gap-8 mb-12">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#e0bfbf] relative">
-                   <Image 
-                     src="/boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg" 
-                     fill
-                     className="object-cover" 
-                     alt="Patron" 
-                   />
+                  <Image
+                    src="/boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg"
+                    fill
+                    className="object-cover"
+                    alt="Patron"
+                  />
                 </div>
                 <div>
                   <h5 className="font-bold text-xs text-[#570013]">Patron Dr. Isaac .O. Ogundipe</h5>
@@ -177,12 +177,12 @@ export default function TheologySchool() {
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#e0bfbf] relative">
-                   <Image 
-                     src="/boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg" 
-                     fill
-                     className="object-cover" 
-                     alt="Board Member" 
-                   />
+                  <Image
+                    src="/boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg"
+                    fill
+                    className="object-cover"
+                    alt="Board Member"
+                  />
                 </div>
                 <div>
                   <h5 className="font-bold text-xs text-[#570013]">Pastor Dr. Henry O. Adesemoye</h5>
@@ -224,128 +224,128 @@ export default function TheologySchool() {
         <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <StaggerItem className="grid gap-4">
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_28.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 1" 
+              <Image
+                src="/set/Set 1_28.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 1"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_29.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 2" 
+              <Image
+                src="/set/Set 1_29.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 2"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_30.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 3" 
-              />
-              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-          </StaggerItem>
-          <StaggerItem className="grid gap-4">
-            <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_31.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 4" 
-              />
-              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-            <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_32.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 5" 
-              />
-              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-            <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_33.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 6" 
+              <Image
+                src="/set/Set 1_30.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 3"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </StaggerItem>
           <StaggerItem className="grid gap-4">
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_34.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 7" 
+              <Image
+                src="/set/Set 1_31.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 4"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_35.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 8" 
+              <Image
+                src="/set/Set 1_32.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 5"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_36.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 9" 
+              <Image
+                src="/set/Set 1_33.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 6"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </StaggerItem>
           <StaggerItem className="grid gap-4">
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_37.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 10" 
+              <Image
+                src="/set/Set 1_34.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 7"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_38.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 11" 
+              <Image
+                src="/set/Set 1_35.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 8"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image 
-                src="/set/Set 1_39.jpg" 
-                width={400} 
-                height={500} 
-                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110" 
-                alt="Graduate 12" 
+              <Image
+                src="/set/Set 1_36.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 9"
+              />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          </StaggerItem>
+          <StaggerItem className="grid gap-4">
+            <div className="overflow-hidden rounded-sm group relative">
+              <Image
+                src="/set/Set 1_37.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 10"
+              />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <Image
+                src="/set/Set 1_38.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 11"
+              />
+              <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="overflow-hidden rounded-sm group relative">
+              <Image
+                src="/set/Set 1_39.jpg"
+                width={400}
+                height={500}
+                className="h-auto max-w-full rounded-sm transition-transform duration-700 group-hover:scale-110"
+                alt="Graduate 12"
               />
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
@@ -372,10 +372,10 @@ export default function TheologySchool() {
           ].map((post, i) => (
             <StaggerItem key={i} className="group">
               <div className="aspect-[3/4] overflow-hidden mb-6 bg-stone-200 relative">
-                <Image 
-                  src={post.img} 
+                <Image
+                  src={post.img}
                   fill
-                  className="object-cover transition-all duration-500 scale-105 group-hover:scale-100" 
+                  className="object-cover transition-all duration-500 scale-105 group-hover:scale-100"
                   alt={post.title}
                 />
               </div>
@@ -395,7 +395,7 @@ export default function TheologySchool() {
           <h2 className="font-serif text-4xl mb-6">Begin Your Scholarly Journey</h2>
           <p className="max-w-xl mx-auto opacity-80 mb-10 px-6">Applications for the upcoming semester are now open. Experience a curriculum designed for depth, discipline, and devotion.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-6">
-            <button 
+            <button
               className="px-10 py-4 bg-[#775a19] font-bold hover:bg-[#8e6b20] transition-colors"
             >
               Start Application
@@ -443,6 +443,8 @@ export default function TheologySchool() {
                 <p>08033514808</p>
                 <p>08056404396</p>
                 <p>08038571189</p>
+                <p>08107282511 (Registerer)</p>
+                <p>08146238217 (Deen)</p>
               </div>
             </div>
           </StaggerItem>

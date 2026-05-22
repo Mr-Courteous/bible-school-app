@@ -100,6 +100,8 @@ export default function ContactPage() {
                       <p>08033514808</p>
                       <p>08056404396</p>
                       <p>08038571189</p>
+                      <p>08107282511 (Registerer)</p>
+                      <p>08146238217 (Deen)</p>
                     </div>
                   </div>
                 </div>

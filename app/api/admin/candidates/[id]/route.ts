@@ -4,14 +4,15 @@ import { prisma } from '@/lib/prisma';
 // UPDATE candidate status or details
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     const body = await request.json();
     const { status, fullName, email, phone, program } = body;
 
     const candidate = await prisma.candidate.update({
-      where: { id: params.id },
+      where: { id: resolvedParams.id },
       data: {
         status,
         fullName,
@@ -34,11 +35,12 @@ export async function PATCH(
 // DELETE candidate
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     await prisma.candidate.delete({
-      where: { id: params.id },
+      where: { id: resolvedParams.id },
     });
     return NextResponse.json({ message: 'Candidate deleted successfully' });
   } catch (error) {

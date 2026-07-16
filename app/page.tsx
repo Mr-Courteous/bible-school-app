@@ -108,13 +108,13 @@ export default function TheologySchool() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { name: 'Pastor Dr S A Ajifolokun', role: 'Chairman', img: '/boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg' },
-            { name: 'Evang Dr. Mrs Victoria Oluremi Ajifolokun', role: 'Founder / Director of Studies', img: '/boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg' },
-            { name: 'Bro Engr Emmanuel E. Ajifolokun Oluremi', role: 'Coordinator', img: '/boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg' },
-            { name: 'Pastor Dr. Henry Olubunmi Adesemoye', role: 'Dean', img: '/boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg' },
-            { name: 'Pastor Dr J.A. Adeleye', role: 'Registrar', img: '/boards/WhatsApp Image 2026-05-07 at 8.38.20 PM.jpeg' },
-            { name: 'Patron Dr. Isaac .O. Ogundipe', role: 'Patron', img: '/boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg' },
-            { name: 'Oba HRH Dr. Peter Babatunde Ojo', role: 'Board Member', img: '/boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg' },
+            { name: 'Pastor Dr S A Ajifolokun', role: 'Chairman', img: '/Boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg' },
+            { name: 'Evang Dr. Mrs Victoria Oluremi Ajifolokun', role: 'Founder / Director of Studies', img: '/Boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg' },
+            { name: 'Bro Engr Emmanuel E. Ajifolokun Oluremi', role: 'Coordinator', img: '/Boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg' },
+            { name: 'Pastor Dr. Henry Olubunmi Adesemoye', role: 'Dean', img: '/Boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg' },
+            { name: 'Pastor Dr J.A. Adeleye', role: 'Registrar', img: '/Boards/WhatsApp Image 2026-05-07 at 8.38.20 PM.jpeg' },
+            { name: 'Patron Dr. Isaac .O. Ogundipe', role: 'Patron', img: '/Boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg' },
+            { name: 'Oba HRH Dr. Peter Babatunde Ojo', role: 'Board Member', img: '/Boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg' },
           ].map((pillar, index) => (
             <div key={index} className="bg-[#f6f2eb] rounded-sm overflow-hidden border border-[#e0bfbf]/20 shadow-sm">
               <div className="aspect-[4/5] relative">
@@ -140,7 +140,7 @@ export default function TheologySchool() {
           <AnimatedSection direction="left" className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-sm shadow-2xl relative z-10 bg-stone-100">
               <LazyImage
-                src="/boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg"
+                src="/Boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg"
                 fill
                 className="object-cover"
                 alt="Chairman Governing Council"
@@ -162,7 +162,7 @@ export default function TheologySchool() {
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#e0bfbf] relative">
                   <LazyImage
-                    src="/boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg"
+                    src="/Boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg"
                     fill
                     className="object-cover"
                     alt="Patron"
@@ -176,7 +176,7 @@ export default function TheologySchool() {
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#e0bfbf] relative">
                   <LazyImage
-                    src="/boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg"
+                    src="/Boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg"
                     fill
                     className="object-cover"
                     alt="Board Member"

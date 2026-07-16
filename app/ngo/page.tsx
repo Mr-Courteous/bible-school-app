@@ -136,7 +136,7 @@ export default function NGOPage() {
                 <div className="flex flex-col items-center">
                   <div className="w-12 h-12 rounded-full overflow-hidden mb-3 border border-[#fed488]/30 relative">
                     <Image 
-                      src="/boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg" 
+                      src="/Boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg" 
                       fill
                       className="object-cover" 
                       alt="Co-founder" 

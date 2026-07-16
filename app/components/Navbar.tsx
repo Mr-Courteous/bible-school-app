@@ -28,6 +28,7 @@ export default function Navbar() {
           <div>
             <Link href="/">
               <Image 
+                loading="lazy"
                 src="/logo.jpeg" 
                 alt="Christ-Pattern Bible College Logo" 
                 width={50} 

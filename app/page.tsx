@@ -4,10 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import Navbar from './components/Navbar';
 import Image from 'next/image';
-import { AnimatedSection, StaggerContainer, StaggerItem, FadeIn, ScaleIn, AnimatedIcon, Floating, HoverCard, MovingGradient, FloatingBubbles, LiveIcon } from './components/AnimatedSection';
+
 import {
-  Brain,
-  History,
   ChevronDown,
   Quote as QuoteIcon,
   ArrowRight,
@@ -15,6 +13,31 @@ import {
   School,
   Library
 } from 'lucide-react';
+
+const LazyImage = (props: React.ComponentPropsWithoutRef<typeof Image>) => (
+  <Image loading="lazy" {...props} />
+);
+
+type SectionProps = React.HTMLAttributes<HTMLDivElement> & { direction?: 'left' | 'right' | 'none' };
+
+const AnimatedSection = ({ children, className, ...props }: SectionProps) => (
+  <div className={className} {...props}>{children}</div>
+);
+
+const StaggerContainer = ({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={className} {...props}>{children}</div>
+);
+
+const StaggerItem = StaggerContainer;
+const FadeIn = StaggerContainer;
+const ScaleIn = StaggerContainer;
+const HoverCard = StaggerContainer;
+const Floating = ({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={className} {...props}>{children}</div>
+);
+const MovingGradient = () => null;
+const FloatingBubbles = () => null;
+const LiveIcon = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 
 export default function TheologySchool() {
   return (
@@ -59,13 +82,13 @@ export default function TheologySchool() {
           >
             <Link
               href="/apply"
-              className="px-10 py-4 bg-[#570013] text-white font-bold rounded-sm hover:scale-105 transition-transform"
+              className="px-10 py-4 bg-[#570013] text-white font-bold rounded-sm"
             >
               Apply Now
             </Link>
             <Link
               href="/about"
-              className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-sm hover:bg-white/20 transition-all"
+              className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-sm"
             >
               Meet the Council
             </Link>
@@ -78,61 +101,36 @@ export default function TheologySchool() {
 
       {/* Core Pillars */}
       <section className="py-24 px-8 md:px-12 max-w-7xl mx-auto">
-        <AnimatedSection className="mb-16">
+        <div className="mb-16">
           <h2 className="font-serif text-4xl text-[#570013] mb-4">Core Pillars</h2>
           <div className="w-16 h-1 bg-[#775a19]" />
-        </AnimatedSection>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          <ScaleIn className="md:col-span-7 relative group h-[450px] overflow-hidden rounded-sm">
-            <Image
-              src="/set/Set 1_6.jpg"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              alt="Biblical Theology"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#570013] via-transparent to-transparent opacity-90" />
-            <div className="absolute bottom-0 p-10">
-              <h3 className="font-serif text-3xl text-white mb-3">Biblical Theology</h3>
-              <p className="text-white/80 max-w-xs text-sm">Deepening the understanding of sacred texts through historical context and linguistic analysis.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { name: 'Pastor Dr S A Ajifolokun', role: 'Chairman', img: '/boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg' },
+            { name: 'Evang Dr. Mrs Victoria Oluremi Ajifolokun', role: 'Founder / Director of Studies', img: '/boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg' },
+            { name: 'Bro Engr Emmanuel E. Ajifolokun Oluremi', role: 'Coordinator', img: '/boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg' },
+            { name: 'Pastor Dr. Henry Olubunmi Adesemoye', role: 'Dean', img: '/boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg' },
+            { name: 'Pastor Dr J.A. Adeleye', role: 'Registrar', img: '/boards/WhatsApp Image 2026-05-07 at 8.38.20 PM.jpeg' },
+            { name: 'Patron Dr. Isaac .O. Ogundipe', role: 'Patron', img: '/boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg' },
+            { name: 'Oba HRH Dr. Peter Babatunde Ojo', role: 'Board Member', img: '/boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg' },
+          ].map((pillar, index) => (
+            <div key={index} className="bg-[#f6f2eb] rounded-sm overflow-hidden border border-[#e0bfbf]/20 shadow-sm">
+              <div className="aspect-[4/5] relative">
+                <LazyImage
+                  src={pillar.img}
+                  fill
+                  className="object-cover"
+                  alt={pillar.name}
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="font-serif text-xl text-[#570013] mb-2">{pillar.name}</h3>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-[#775a19]">{pillar.role}</p>
+              </div>
             </div>
-          </ScaleIn>
-
-          <StaggerContainer className="md:col-span-5 flex flex-col gap-6">
-            <HoverCard className="bg-[#efeeea] p-10 flex-1 border-l-4 border-[#775a19] relative overflow-hidden">
-              <FloatingBubbles />
-              <StaggerItem className="relative z-10">
-                <LiveIcon>
-                  <Brain className="text-[#775a19] mb-4" size={32} />
-                </LiveIcon>
-                <h3 className="font-serif text-2xl text-[#570013] mb-2">Christian Philosophy</h3>
-                <p className="text-[#584141] text-sm leading-relaxed">The Word of God is the ultimate authority, infallible and inspired, governing all areas of life, theology, and education.</p>
-              </StaggerItem>
-            </HoverCard>
-            <HoverCard className="bg-[#570013] p-10 flex-1 text-white relative overflow-hidden">
-              <StaggerItem className="relative z-10">
-                <LiveIcon>
-                  <History className="text-[#ffb3b5] mb-4" size={32} />
-                </LiveIcon>
-                <h3 className="font-serif text-2xl mb-2">Scholarly Heritage</h3>
-                <p className="text-white/70 text-sm leading-relaxed">Preserving the intellectual traditions and legacy of our Bible College for future generations.</p>
-              </StaggerItem>
-            </HoverCard>
-          </StaggerContainer>
-
-          <AnimatedSection className="md:col-span-12 relative h-[350px] rounded-sm overflow-hidden group">
-            <Image
-              src="/set/Set 1_23.jpg"
-              fill
-              className="object-cover brightness-50"
-              alt="Global Service"
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-[#775a19]/30">
-              <h3 className="font-serif text-4xl text-white mb-4">Global Service &amp; NGO</h3>
-              <p className="text-white/90 max-w-2xl mb-8">Our theology is lived out through our global NGO initiatives, providing relief and education where it&apos;s needed most.</p>
-              <button className="px-8 py-3 bg-white text-[#570013] font-bold rounded-sm hover:bg-[#e9e8e4] transition-colors">Learn About Our Impact</button>
-            </div>
-          </AnimatedSection>
+          ))}
         </div>
       </section>
 
@@ -141,7 +139,7 @@ export default function TheologySchool() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <AnimatedSection direction="left" className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-sm shadow-2xl relative z-10 bg-stone-100">
-              <Image
+              <LazyImage
                 src="/boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg"
                 fill
                 className="object-cover"
@@ -163,7 +161,7 @@ export default function TheologySchool() {
             <div className="grid grid-cols-2 gap-8 mb-12">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#e0bfbf] relative">
-                  <Image
+                  <LazyImage
                     src="/boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg"
                     fill
                     className="object-cover"
@@ -177,7 +175,7 @@ export default function TheologySchool() {
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#e0bfbf] relative">
-                  <Image
+                  <LazyImage
                     src="/boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg"
                     fill
                     className="object-cover"
@@ -190,7 +188,7 @@ export default function TheologySchool() {
                 </div>
               </div>
             </div>
-            <Link href="/about" className="inline-flex items-center gap-3 px-8 py-4 bg-[#775a19] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#570013] transition-colors">
+            <Link href="/about" className="inline-flex items-center gap-3 px-8 py-4 bg-[#775a19] text-white font-bold text-xs uppercase tracking-widest">
               Meet the Full Council <ArrowRight size={16} />
             </Link>
           </AnimatedSection>
@@ -224,7 +222,7 @@ export default function TheologySchool() {
         <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <StaggerItem className="grid gap-4">
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_28.jpg"
                 width={400}
                 height={500}
@@ -234,7 +232,7 @@ export default function TheologySchool() {
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_29.jpg"
                 width={400}
                 height={500}
@@ -244,7 +242,7 @@ export default function TheologySchool() {
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_30.jpg"
                 width={400}
                 height={500}
@@ -256,7 +254,7 @@ export default function TheologySchool() {
           </StaggerItem>
           <StaggerItem className="grid gap-4">
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_31.jpg"
                 width={400}
                 height={500}
@@ -266,7 +264,7 @@ export default function TheologySchool() {
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_32.jpg"
                 width={400}
                 height={500}
@@ -276,7 +274,7 @@ export default function TheologySchool() {
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_33.jpg"
                 width={400}
                 height={500}
@@ -288,7 +286,7 @@ export default function TheologySchool() {
           </StaggerItem>
           <StaggerItem className="grid gap-4">
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_34.jpg"
                 width={400}
                 height={500}
@@ -298,7 +296,7 @@ export default function TheologySchool() {
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_35.jpg"
                 width={400}
                 height={500}
@@ -308,7 +306,7 @@ export default function TheologySchool() {
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_36.jpg"
                 width={400}
                 height={500}
@@ -320,7 +318,7 @@ export default function TheologySchool() {
           </StaggerItem>
           <StaggerItem className="grid gap-4">
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_37.jpg"
                 width={400}
                 height={500}
@@ -330,7 +328,7 @@ export default function TheologySchool() {
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_38.jpg"
                 width={400}
                 height={500}
@@ -340,7 +338,7 @@ export default function TheologySchool() {
               <div className="absolute inset-0 bg-[#570013]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="overflow-hidden rounded-sm group relative">
-              <Image
+              <LazyImage
                 src="/set/Set 1_39.jpg"
                 width={400}
                 height={500}
@@ -372,7 +370,7 @@ export default function TheologySchool() {
           ].map((post, i) => (
             <StaggerItem key={i} className="group">
               <div className="aspect-[3/4] overflow-hidden mb-6 bg-stone-200 relative">
-                <Image
+                <LazyImage
                   src={post.img}
                   fill
                   className="object-cover transition-all duration-500 scale-105 group-hover:scale-100"
@@ -380,9 +378,9 @@ export default function TheologySchool() {
                 />
               </div>
               <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-widest mb-2 block">{post.tag}</span>
-              <h4 className="font-serif text-xl text-[#570013] mb-4 group-hover:text-[#775a19] transition-colors">{post.title}</h4>
+              <h4 className="font-serif text-xl text-[#570013] mb-4">{post.title}</h4>
               <Link href="#" className="flex items-center gap-2 font-bold text-[#570013] text-sm group">
-                Read More <LiveIcon><ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></LiveIcon>
+                Read More <LiveIcon><ArrowRight size={16} /></LiveIcon>
               </Link>
             </StaggerItem>
           ))}
@@ -396,11 +394,11 @@ export default function TheologySchool() {
           <p className="max-w-xl mx-auto opacity-80 mb-10 px-6">Applications for the upcoming semester are now open. Experience a curriculum designed for depth, discipline, and devotion.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-6">
             <button
-              className="px-10 py-4 bg-[#775a19] font-bold hover:bg-[#8e6b20] transition-colors"
+              className="px-10 py-4 bg-[#775a19] font-bold"
             >
               Start Application
             </button>
-            <button className="px-10 py-4 border border-white/30 font-bold hover:bg-white/10 transition-colors">Request Information</button>
+            <button className="px-10 py-4 border border-white/30 font-bold">Request Information</button>
           </div>
         </section>
       </AnimatedSection>

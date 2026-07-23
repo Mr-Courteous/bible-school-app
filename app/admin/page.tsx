@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Navbar from '../components/Navbar';
-import { RefreshCw, Trash2, CheckCircle, XCircle, Clock } from 'lucide-react';
+import { RefreshCw, Trash2, CheckCircle, XCircle, Clock, LogOut } from 'lucide-react';
 
 interface Candidate {
   id: string;
@@ -15,8 +16,15 @@ interface Candidate {
 }
 
 export default function AdminDashboard() {
+  const router = useRouter();
   const [candidates, setCandidates] = useState<Candidate[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const handleLogout = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    router.push('/admin/login');
+    router.refresh();
+  };
 
   const fetchCandidates = async () => {
     setLoading(true);
@@ -68,12 +76,20 @@ export default function AdminDashboard() {
             <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-widest block mb-2">Admin Portal</span>
             <h1 className="font-serif text-4xl text-[#570013]">Registrations</h1>
           </div>
-          <button 
-            onClick={fetchCandidates}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest hover:bg-[#efeeea] transition-colors"
-          >
-            <RefreshCw size={14} className={loading ? 'animate-spin' : ''} /> Refresh
-          </button>
+          <div className="flex gap-3">
+            <button 
+              onClick={fetchCandidates}
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest hover:bg-[#efeeea] transition-colors"
+            >
+              <RefreshCw size={14} className={loading ? 'animate-spin' : ''} /> Refresh
+            </button>
+            <button 
+              onClick={handleLogout}
+              className="flex items-center gap-2 px-4 py-2 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest text-[#570013] hover:bg-[#efeeea] transition-colors"
+            >
+              <LogOut size={14} /> Logout
+            </button>
+          </div>
         </div>
 
         <div className="bg-white shadow-sm border border-[#e0bfbf]/20 overflow-hidden">

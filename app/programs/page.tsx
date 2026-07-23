@@ -103,6 +103,29 @@ export default function ServicesPage() {
             </div>
           </div>
         </article>
+
+        {/* Departments */}
+        <article className="bg-white shadow-sm border border-[#e8e2d6] rounded-md p-10">
+          <h2 className="font-serif text-3xl text-[#570013] mb-6">Departments</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-sm bg-[#f7f3ee] p-5 flex items-center gap-3">
+              <Book size={16} className="text-[#775a19] shrink-0" />
+              <span className="text-sm text-[#584141] font-medium">Biblical Theology</span>
+            </div>
+            <div className="rounded-sm bg-[#f7f3ee] p-5 flex items-center gap-3">
+              <Globe size={16} className="text-[#775a19] shrink-0" />
+              <span className="text-sm text-[#584141] font-medium">Evangelist & Mission</span>
+            </div>
+            <div className="rounded-sm bg-[#f7f3ee] p-5 flex items-center gap-3">
+              <Award size={16} className="text-[#775a19] shrink-0" />
+              <span className="text-sm text-[#584141] font-medium">Ecclesology Theology</span>
+            </div>
+            <div className="rounded-sm bg-[#f7f3ee] p-5 flex items-center gap-3">
+              <Send size={16} className="text-[#775a19] shrink-0" />
+              <span className="text-sm text-[#584141] font-medium">Leadership & Evangelist</span>
+            </div>
+          </div>
+        </article>
       </section>
 
       <AnimatedSection direction="none" className="max-w-6xl mx-auto px-8">

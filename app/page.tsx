@@ -351,41 +351,7 @@ export default function TheologySchool() {
         </StaggerContainer>
       </section>
 
-      {/* News Section */}
-      <section className="py-24 px-8 md:px-12 max-w-7xl mx-auto relative overflow-hidden">
-        <FloatingBubbles />
-        <AnimatedSection className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="font-serif text-4xl text-[#570013] mb-2">Latest News</h2>
-            <p className="text-[#584141]">Dispatches from the heart of the College</p>
-          </div>
-          <Link href="#" className="text-[#775a19] font-bold border-b border-[#775a19]">View All Articles</Link>
-        </AnimatedSection>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {[
-            { title: "The Discovery of the lost Galatians Fragment", tag: "Faculty Research", img: "/set/Set 1_24.jpg" },
-            { title: "Annual Symposium: Faith in the Age of AI", tag: "Events", img: "/set/Set 1_25.jpg" },
-            { title: "Extending the Scriptorium to South Sudan", tag: "NGO Work", img: "/set/Set 1_26.jpg" }
-          ].map((post, i) => (
-            <StaggerItem key={i} className="group">
-              <div className="aspect-[3/4] overflow-hidden mb-6 bg-stone-200 relative">
-                <LazyImage
-                  src={post.img}
-                  fill
-                  className="object-cover transition-all duration-500 scale-105 group-hover:scale-100"
-                  alt={post.title}
-                />
-              </div>
-              <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-widest mb-2 block">{post.tag}</span>
-              <h4 className="font-serif text-xl text-[#570013] mb-4">{post.title}</h4>
-              <Link href="#" className="flex items-center gap-2 font-bold text-[#570013] text-sm group">
-                Read More <LiveIcon><ArrowRight size={16} /></LiveIcon>
-              </Link>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </section>
 
       {/* Footer CTA */}
       <AnimatedSection direction="none">

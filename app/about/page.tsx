@@ -205,6 +205,58 @@ export default function AboutPage() {
           </StaggerContainer>
         </section>
 
+        {/* Doctorate List Section */}
+        {/*
+          HOW TO ADD PEOPLE / PHOTOS:
+          1. Drop each photo into /public/doctorates/ (create the folder if it doesn't exist).
+          2. Add one object per person to the `doctorateList` array below — copy an existing
+             line and edit name, role, and img. There is no limit on how many you add; the
+             grid below loops over the array automatically, so the layout stays consistent
+             no matter how many entries end up in the list.
+          3. If a photo isn't ready yet, leave img as an empty string ("") — a placeholder
+             icon will show in its place until you fill it in.
+        */}
+        <section className="py-32 px-8 md:px-12 max-w-7xl mx-auto border-t border-[#e0bfbf]/20">
+          <AnimatedSection className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+            <div>
+              <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-[0.2em] block mb-4">Academic Distinction</span>
+              <h2 className="font-serif text-5xl md:text-6xl text-[#570013] mb-4">Doctorate List</h2>
+              <p className="text-[#584141] opacity-70 max-w-xl">Honoring the doctorate holders whose scholarship shapes the life of the college.</p>
+            </div>
+          </AnimatedSection>
+
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+            {(
+              [
+                { name: "Pastor Dr Mike ademisoye (A K A) Mojigbare", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 3.56.31 PM.jpeg" },
+                { name: "Pastor Dr Olubunmi asorose", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 3.58.37 PM.jpeg" },
+                { name: "Pastor Dr folorunso alamu", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 4.00.06 PM.jpeg" },
+                { name: "Evang Dr Mrs F.T DADA", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 4.03.04 PM.jpeg" },
+                { name: "Pastor Dr Mrs opesan", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 4.06.19 PM.jpeg" },
+                { name: "Pastor Dr Mrs Esther Okunuga", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 4.07.57 PM.jpeg" },
+              ] as { name: string; role: string; img: string }[]
+            ).map((person, i) => (
+              <StaggerItem key={i}>
+                <div className="aspect-[4/5] bg-stone-100 overflow-hidden mb-6 group relative shadow-md rounded-sm flex items-center justify-center">
+                  {person.img ? (
+                    <Image
+                      src={person.img}
+                      fill
+                      className="object-cover transition-all duration-700 group-hover:scale-105"
+                      alt={person.name || "Doctorate holder"}
+                    />
+                  ) : (
+                    <GraduationCap size={40} className="text-[#775a19]/40" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#570013]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <h4 className="font-serif text-xl text-[#570013] mb-1">{person.name || "Name Pending"}</h4>
+                <p className="text-[10px] font-bold text-[#775a19] uppercase tracking-widest mb-4">{person.role || "Doctorate Holder"}</p>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </section>
+
         {/* Global Accreditation Section */}
         {/* <section className="py-24 px-8 md:px-12 max-w-7xl mx-auto border-t border-[#e0bfbf]/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

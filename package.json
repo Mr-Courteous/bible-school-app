@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && prisma migrate deploy && next build",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate"
@@ -12,7 +12,9 @@
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
+    "bcryptjs": "^3.0.3",
     "framer-motion": "^12.38.0",
+    "jose": "^6.2.4",
     "lucide-react": "^1.8.0",
     "next": "16.2.3",
     "pg": "^8.22.0",

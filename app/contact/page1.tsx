@@ -192,7 +192,7 @@ export default function ContactPage() {
 
       {/* Footer (Simplified as per screenshot) */}
       <footer className="bg-[#faf9f5] pt-24 pb-12 px-8 md:px-12 border-t border-[#e0bfbf]/20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[#584141] text-[10px] font-bold uppercase tracking-widest">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-[#584141] text-[10px] font-bold uppercase tracking-widest">
           <div>
             <div className="text-xl font-bold text-[#570013] font-serif normal-case mb-6">Christ-Pattern Bible College</div>
             <p className="opacity-50 lowercase font-normal normal-case leading-relaxed">Raising end-time soldiers for Christ through sound biblical teaching, spiritual growth, and leadership development.</p>
@@ -212,13 +212,7 @@ export default function ContactPage() {
               <li>Terms of Service</li>
             </ul>
           </div>
-          <div className="space-y-4">
-            <h5 className="text-[#570013]">Newsletter</h5>
-            <div className="flex bg-[#efeeea] p-1 mt-4">
-              <input type="email" placeholder="Email for the Scriptorium Digest" className="bg-transparent px-3 py-2 w-full outline-none font-normal lowercase" />
-              <button className="bg-[#570013] p-2 text-white"><Send size={14} /></button>
-            </div>
-          </div>
+
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 text-center opacity-40 text-[9px]">
           &copy; {new Date().getFullYear()} Christ-Pattern Bible College. All rights reserved.

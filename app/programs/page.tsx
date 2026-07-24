@@ -139,7 +139,7 @@ export default function ServicesPage() {
       </AnimatedSection>
 
       <footer className="bg-[#faf9f5] pt-24 pb-12 px-8 md:px-12 border-t border-[#e0bfbf]/20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[#584141] text-xs">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-[#584141] text-xs">
           <div>
             <div className="text-xl font-bold text-[#570013] font-serif mb-6">Christ-Pattern Bible College</div>
             <p className="opacity-60 leading-relaxed">Preserving the past, informing the present, and shaping the future of theological discourse.</p>
@@ -160,14 +160,7 @@ export default function ServicesPage() {
               <li>Privacy Policy</li>
             </ul>
           </div>
-          <div>
-            <h5 className="font-bold text-[#570013] uppercase tracking-widest text-[10px] mb-6">Newsletter</h5>
-            <p className="opacity-60 mb-4">Occasional insights from our Scriptorium.</p>
-            <div className="flex bg-[#efeeea] p-1">
-              <input type="email" placeholder="Email address" className="bg-transparent px-3 py-2 w-full outline-none text-[10px]" />
-              <button className="bg-[#570013] p-2 text-white">Send</button>
-            </div>
-          </div>
+
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 flex flex-col md:flex-row justify-between items-center text-[9px] opacity-40 uppercase tracking-[0.2em]">
           <p>&copy; {new Date().getFullYear()} Christ-Pattern Bible College. All rights reserved.</p>

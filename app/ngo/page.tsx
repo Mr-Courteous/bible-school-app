@@ -225,7 +225,7 @@ export default function NGOPage() {
 
       {/* Footer */}
       <footer className="bg-[#faf9f5] pt-24 pb-12 px-8 md:px-12 border-t border-[#e0bfbf]/20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[#584141] text-xs">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-[#584141] text-xs">
           <div>
             <div className="text-xl font-bold text-[#570013] font-serif mb-6">Christ-Pattern Bible College</div>
             <p className="opacity-60 leading-relaxed">Bridging biblical knowledge with modern action. A non-profit initiative of Christ-Pattern Bible College.</p>
@@ -248,13 +248,7 @@ export default function NGOPage() {
               <li>Support Services</li>
             </ul>
           </div>
-          <div>
-            <h5 className="font-bold text-[#570013] uppercase tracking-widest text-[10px] mb-6">Connect</h5>
-            <div className="flex bg-[#efeeea] p-1 mb-6">
-              <input type="email" placeholder="Newsletter" className="bg-transparent px-3 py-2 w-full outline-none text-[10px]" />
-              <button className="bg-[#570013] p-2 text-white"><Send size={14} /></button>
-            </div>
-          </div>
+
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#e0bfbf]/10 flex justify-between items-center text-[9px] opacity-40 uppercase tracking-[0.2em]">
           <p>&copy; {new Date().getFullYear()} Christ-Pattern Bible College. All rights reserved.</p>

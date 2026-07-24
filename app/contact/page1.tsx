@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
@@ -17,46 +15,6 @@ import {
 } from 'lucide-react';
 
 export default function ContactPage() {
-  const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    inquiryType: 'Admissions Inquiry',
-    message: '',
-  });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMsg, setErrorMsg] = useState('');
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    setErrorMsg('');
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        setErrorMsg(data.error || 'Something went wrong. Please try again.');
-        setStatus('error');
-        return;
-      }
-      setStatus('success');
-      setForm({ firstName: '', lastName: '', email: '', inquiryType: 'Admissions Inquiry', message: '' });
-    } catch (err) {
-      setErrorMsg('Something went wrong. Please try again.');
-      setStatus('error');
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#faf9f5] font-sans selection:bg-[#fed488]">
       <Navbar />
@@ -89,89 +47,37 @@ export default function ContactPage() {
           {/* Contact Form */}
           <AnimatedSection direction="left" className="lg:col-span-7 bg-white p-12 shadow-sm border border-[#e0bfbf]/20">
             <h2 className="font-serif text-3xl text-[#570013] mb-8">Send Us a Message</h2>
-            {status === 'success' ? (
-              <div className="bg-green-50 border border-green-200 text-green-800 text-sm p-6 rounded-sm">
-                Thank you — your message has been sent. We&apos;ll be in touch soon.
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Given Name</label>
+                  <input type="text" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Theophilus" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Surname</label>
+                  <input type="text" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Student" />
+                </div>
               </div>
-            ) : (
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                {status === 'error' && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 text-xs px-4 py-3 rounded-sm">
-                    {errorMsg}
-                  </div>
-                )}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Given Name</label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      required
-                      value={form.firstName}
-                      onChange={handleChange}
-                      className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]"
-                      placeholder="Theophilus"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Surname</label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      required
-                      value={form.lastName}
-                      onChange={handleChange}
-                      className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]"
-                      placeholder="Student"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Electronic Address</label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]"
-                    placeholder="scholar@scriptorium.edu"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Nature of Inquiry</label>
-                  <select
-                    name="inquiryType"
-                    value={form.inquiryType}
-                    onChange={handleChange}
-                    className="w-full bg-[#f4f4f0] p-4 text-xs outline-none appearance-none"
-                  >
-                    <option>Admissions Inquiry</option>
-                    <option>Research Collaboration</option>
-                    <option>NGO Partnership</option>
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Message</label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={5}
-                    value={form.message}
-                    onChange={handleChange}
-                    className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]"
-                    placeholder="Your thoughts or questions..."
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  disabled={status === 'loading'}
-                  className="flex items-center gap-3 px-10 py-4 bg-[#570013] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#800020] transition-all group disabled:opacity-50"
-                >
-                  {status === 'loading' ? 'Sending...' : 'Submit Inquiry'} <Send size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </form>
-            )}
+              <div className="space-y-2">
+                <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Electronic Address</label>
+                <input type="email" className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="scholar@scriptorium.edu" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Nature of Inquiry</label>
+                <select className="w-full bg-[#f4f4f0] p-4 text-xs outline-none appearance-none">
+                  <option>Admissions Inquiry</option>
+                  <option>Research Collaboration</option>
+                  <option>NGO Partnership</option>
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-[9px] font-bold uppercase tracking-widest text-[#775a19]">Message</label>
+                <textarea rows={5} className="w-full bg-[#f4f4f0] p-4 text-xs outline-none focus:ring-1 focus:ring-[#775a19]" placeholder="Your thoughts or questions..."></textarea>
+              </div>
+              <button className="flex items-center gap-3 px-10 py-4 bg-[#570013] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#800020] transition-all group">
+                Submit Inquiry <Send size={14} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </form>
           </AnimatedSection>
 
           {/* Side Info */}

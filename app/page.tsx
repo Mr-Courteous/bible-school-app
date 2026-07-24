@@ -359,12 +359,13 @@ export default function TheologySchool() {
           <h2 className="font-serif text-4xl mb-6">Begin Your Scholarly Journey</h2>
           <p className="max-w-xl mx-auto opacity-80 mb-10 px-6">Applications for the upcoming semester are now open. Experience a curriculum designed for depth, discipline, and devotion.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-6">
-            <button
-              className="px-10 py-4 bg-[#775a19] font-bold"
+            <Link
+              href="/apply"
+              className="px-10 py-4 bg-[#775a19] font-bold block text-center"
             >
               Start Application
-            </button>
-            <button className="px-10 py-4 border border-white/30 font-bold">Request Information</button>
+            </Link>
+            <Link href="/contact" className="px-10 py-4 border border-white/30 font-bold block text-center">Request Information</Link>
           </div>
         </section>
       </AnimatedSection>

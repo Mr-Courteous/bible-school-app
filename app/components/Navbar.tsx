@@ -64,9 +64,7 @@ export default function Navbar() {
             <Link href="/apply" className="px-6 py-2 bg-[#570013] text-white rounded font-medium hover:bg-[#800020] transition-colors">
               Apply Now
             </Link>
-            <button className="px-6 py-2 border border-[#8c7071] text-[#570013] rounded font-medium hover:bg-[#f4f4f0] transition-colors">
-              Donate
-            </button>
+
           </div>
 
           {/* Mobile Apply & Menu Button */}
@@ -127,9 +125,7 @@ export default function Navbar() {
                 <Link href="/apply" onClick={() => setIsOpen(false)} className="w-full text-center px-4 py-2 bg-[#570013] text-white rounded font-medium hover:bg-[#800020] transition-colors">
                   Apply Now
                 </Link>
-                <button className="w-full px-4 py-2 border border-[#8c7071] text-[#570013] rounded font-medium hover:bg-[#f4f4f0] transition-colors">
-                  Donate
-                </button>
+
               </div>
             </motion.div>
           )}

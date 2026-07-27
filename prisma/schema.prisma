@@ -12,14 +12,131 @@ enum CandidateStatus {
   REJECTED
 }
 
+enum ReferenceType {
+  PASTOR
+  RELATIVE
+}
+
 model Candidate {
-  id        String          @id @default(cuid())
-  fullName  String
-  email     String          @unique
-  phone     String
-  program   String
-  status    CandidateStatus @default(PENDING)
-  createdAt DateTime        @default(now())
+  id                    String          @id @default(cuid())
+
+  // --- Application Form: Personal & Contact Data ---
+  fullName              String
+  residentialAddress    String
+  email                 String          @unique
+  phone                 String
+  homeTownAddress       String?
+  nationality           String?
+  placeOfBirth          String?
+  dateOfBirth           DateTime?
+  maritalStatus         String?
+  spouseName            String?
+  spousePhone           String?
+  kindOfMarriage        String?         // "With dowry" | "Without dowry"
+  secularOccupation     String?
+  placeOfWork           String?
+
+  // --- Application Form: Spiritual Data ---
+  isRegenerated             Boolean?
+  regenerationExperience    String?     @db.Text
+  churchName                String?
+  pastorName                String?
+  pastorPhone               String?
+  roleInChurch              String?
+  baptizedInWater           Boolean?
+  baptizedByImmersion       Boolean?
+  baptizedInHolySpirit      Boolean?
+  spiritualGifts            String?     @db.Text
+  educationalBackground     String?     @db.Text
+
+  // --- Ministerial Background ---
+  spiritualBackground           String? @db.Text
+  ordinationDate                DateTime?
+  servicePosts                  Json?   // [{ station, post, date }]
+  presentStationPost            String?
+  recognizedAsPastorOrEvangelist Boolean?
+  currentlyPastoring             Boolean?
+  calledToEstablishMinistry      Boolean?
+  spouseSupportsMinistry         Boolean?
+
+  // --- Course of Interest ---
+  program               String          // Certificate / Diploma / Bachelor / Masters / Doctor
+
+  // --- Personal Data / Medical Fitness ---
+  currentAddress        String?
+  occupation            String?
+  illnesses             String[]        @default([])
+  freeFromIllness       Boolean?
+
+  // --- Sponsorship ---
+  sponsorshipType       String?         // "SELF" | "SPONSORED"
+  sponsorName           String?
+  sponsorAddress        String?
+
+  // --- Rules, Regulations & Consequences acknowledgment ---
+  agreedToRules         Boolean         @default(false)
+  agreedToConsequences  Boolean         @default(false)
+  agreementDate         DateTime?
+
+  status                CandidateStatus @default(PENDING)
+  createdAt             DateTime        @default(now())
+
+  references            Reference[]
+  acceptance            Acceptance?
+}
+
+// Covers both the Pastor's Reference Form and the Relatives Reference Form,
+// including the shared Personal Knowledge Matrix.
+model Reference {
+  id          String        @id @default(cuid())
+  candidateId String
+  candidate   Candidate     @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  type        ReferenceType
+
+  refereeName    String?
+  refereeContact String?
+
+  // Pastor's Reference Form fields
+  yearsKnown              Int?
+  monthsKnown             Int?
+  familiarityLevel        String?       // Casually | Fairly well | Very well
+  isGenuinelyBornAgain    Boolean?
+  isBaptizedInWater       Boolean?
+  isBaptizedInHolySpirit  Boolean?
+  christianExperience     String?       // Profound | Contagious | Superficial | Genuine and growing | Over-emotional
+  readyForTraining        String?       // Unhesitatingly | With hesitation | Perhaps at last time | No
+  activeInChurchWork      String?       @db.Text
+  maritalLifeComment      String?       @db.Text
+  socialBackgroundComment String?       @db.Text
+
+  // Relatives Reference Form fields
+  relationshipDuration    String?
+  relationshipDescription String?
+  knownAsChristian        Boolean?
+  characterDescription    String?       @db.Text
+
+  // Personal Knowledge Matrix, shared by both forms.
+  // JSON shape: { "Reliable": "Superior", "Mental Alertness": "Above Average", ... }
+  knowledgeMatrix Json?
+
+  submittedAt DateTime?
+  createdAt   DateTime  @default(now())
+}
+
+// The post-admission Acceptance Form, completed by the school after approval.
+model Acceptance {
+  id          String   @id @default(cuid())
+  candidateId String   @unique
+  candidate   Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  dateOfResumption     DateTime?
+  dislikes             String?   @db.Text
+  refereeGuarantorInfo String?   @db.Text
+  officialPost         String?
+  directorSignedAt     DateTime?
+  registrarSignedAt    DateTime?
+
+  createdAt DateTime @default(now())
 }
 
 model Admin {

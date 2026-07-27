@@ -6,6 +6,7 @@ export async function GET() {
   try {
     const candidates = await prisma.candidate.findMany({
       orderBy: { createdAt: 'desc' },
+      include: { references: true, acceptance: true },
     });
     return NextResponse.json(candidates);
   } catch (error) {

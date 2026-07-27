@@ -3,12 +3,29 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from '../components/Navbar';
-import { RefreshCw, Trash2, CheckCircle, XCircle, Clock, LogOut, ChevronDown, ChevronUp, Copy, Check } from 'lucide-react';
+import { RefreshCw, Trash2, CheckCircle, XCircle, Clock, LogOut, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface ReferenceRecord {
   id: string;
   type: 'PASTOR' | 'RELATIVE';
   refereeName?: string | null;
+  refereeContact?: string | null;
+  yearsKnown?: number | null;
+  monthsKnown?: number | null;
+  familiarityLevel?: string | null;
+  isGenuinelyBornAgain?: boolean | null;
+  isBaptizedInWater?: boolean | null;
+  isBaptizedInHolySpirit?: boolean | null;
+  christianExperience?: string | null;
+  readyForTraining?: string | null;
+  activeInChurchWork?: string | null;
+  maritalLifeComment?: string | null;
+  socialBackgroundComment?: string | null;
+  relationshipDuration?: string | null;
+  relationshipDescription?: string | null;
+  knownAsChristian?: boolean | null;
+  characterDescription?: string | null;
+  knowledgeMatrix?: Record<string, string> | null;
   submittedAt?: string | null;
 }
 
@@ -36,19 +53,31 @@ interface Candidate {
   dateOfBirth?: string | null;
   maritalStatus?: string | null;
   spouseName?: string | null;
+  spousePhone?: string | null;
   kindOfMarriage?: string | null;
   secularOccupation?: string | null;
   placeOfWork?: string | null;
   isRegenerated?: boolean | null;
+  regenerationExperience?: string | null;
   churchName?: string | null;
   pastorName?: string | null;
   pastorPhone?: string | null;
+  roleInChurch?: string | null;
   baptizedInWater?: boolean | null;
+  baptizedByImmersion?: boolean | null;
   baptizedInHolySpirit?: boolean | null;
+  spiritualGifts?: string | null;
+  educationalBackground?: string | null;
   spiritualBackground?: string | null;
+  ordinationDate?: string | null;
+  servicePosts?: { station?: string; post?: string; date?: string }[] | null;
   presentStationPost?: string | null;
   recognizedAsPastorOrEvangelist?: boolean | null;
   currentlyPastoring?: boolean | null;
+  calledToEstablishMinistry?: boolean | null;
+  spouseSupportsMinistry?: boolean | null;
+  currentAddress?: string | null;
+  occupation?: string | null;
   illnesses?: string[];
   freeFromIllness?: boolean | null;
   sponsorshipType?: string | null;
@@ -62,29 +91,76 @@ interface Candidate {
 
 const yn = (v?: boolean | null) => (v === true ? 'Yes' : v === false ? 'No' : '—');
 
-function CopyLink({ label, url }: { label: string; url: string }) {
-  const [copied, setCopied] = useState(false);
-  return (
-    <button
-      type="button"
-      onClick={() => {
-        navigator.clipboard.writeText(url);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1500);
-      }}
-      className="flex items-center gap-2 px-3 py-2 bg-[#f4f4f0]/60 text-[10px] font-bold uppercase tracking-widest text-[#775a19] hover:bg-[#efeeea] transition-colors"
-    >
-      {copied ? <Check size={12} /> : <Copy size={12} />} {label}
-    </button>
-  );
-}
-
 function DetailRow({ label, value }: { label: string; value?: React.ReactNode }) {
   if (value === undefined || value === null || value === '') return null;
   return (
     <div>
       <div className="text-[9px] font-bold text-[#775a19] uppercase tracking-widest">{label}</div>
       <div className="text-xs text-[#584141] mt-0.5">{value}</div>
+    </div>
+  );
+}
+
+function MatrixTable({ matrix }: { matrix?: Record<string, string> | null }) {
+  const entries = matrix ? Object.entries(matrix).filter(([, v]) => v) : [];
+  if (entries.length === 0) return <p className="text-xs text-[#584141] opacity-40 italic">No matrix ratings submitted.</p>;
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1">
+      {entries.map(([trait, rating]) => (
+        <div key={trait} className="flex justify-between text-xs border-b border-[#e0bfbf]/10 py-1">
+          <span className="text-[#584141] opacity-70">{trait}</span>
+          <span className="font-bold text-[#570013]">{rating}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ReferenceDetail({ reference }: { reference: ReferenceRecord }) {
+  const isPastor = reference.type === 'PASTOR';
+  return (
+    <div className="bg-white border border-[#e0bfbf]/30 p-6 space-y-4">
+      <h4 className="font-serif text-base text-[#570013]">
+        {isPastor ? "Pastor's Reference" : "Relative's Reference"}
+        {reference.submittedAt && (
+          <span className="ml-2 text-[10px] font-sans font-normal text-[#584141] opacity-50">
+            submitted {new Date(reference.submittedAt).toLocaleString()}
+          </span>
+        )}
+      </h4>
+      <div className="grid grid-cols-3 gap-4">
+        <DetailRow label="Referee Name" value={reference.refereeName} />
+        <DetailRow label="Contact" value={reference.refereeContact} />
+        {isPastor ? (
+          <>
+            <DetailRow label="Years / Months Known" value={`${reference.yearsKnown ?? '—'} yrs, ${reference.monthsKnown ?? '—'} mos`} />
+            <DetailRow label="Familiarity" value={reference.familiarityLevel} />
+            <DetailRow label="Genuinely Born Again" value={yn(reference.isGenuinelyBornAgain)} />
+            <DetailRow label="Baptized in Water" value={yn(reference.isBaptizedInWater)} />
+            <DetailRow label="Baptized in Holy Spirit" value={yn(reference.isBaptizedInHolySpirit)} />
+            <DetailRow label="Christian Experience" value={reference.christianExperience} />
+            <DetailRow label="Ready for Training" value={reference.readyForTraining} />
+          </>
+        ) : (
+          <>
+            <DetailRow label="Relationship Duration" value={reference.relationshipDuration} />
+            <DetailRow label="Relationship" value={reference.relationshipDescription} />
+            <DetailRow label="Known as Christian" value={yn(reference.knownAsChristian)} />
+          </>
+        )}
+      </div>
+      {isPastor && (
+        <>
+          <DetailRow label="Active in Church Work" value={reference.activeInChurchWork} />
+          <DetailRow label="Marital Life Comment" value={reference.maritalLifeComment} />
+          <DetailRow label="Social Background Comment" value={reference.socialBackgroundComment} />
+        </>
+      )}
+      {!isPastor && <DetailRow label="Character Description" value={reference.characterDescription} />}
+      <div className="pt-3 border-t border-[#e0bfbf]/20">
+        <div className="text-[9px] font-bold text-[#775a19] uppercase tracking-widest mb-2">Personal Knowledge Matrix</div>
+        <MatrixTable matrix={reference.knowledgeMatrix} />
+      </div>
     </div>
   );
 }
@@ -163,11 +239,6 @@ export default function AdminDashboard() {
   const [candidates, setCandidates] = useState<Candidate[]>([]);
   const [loading, setLoading] = useState(true);
   const [expanded, setExpanded] = useState<string | null>(null);
-  const [origin, setOrigin] = useState('');
-
-  useEffect(() => {
-    setOrigin(window.location.origin);
-  }, []);
 
   const handleLogout = async () => {
     await fetch('/api/admin/logout', { method: 'POST' });
@@ -307,12 +378,6 @@ export default function AdminDashboard() {
                         <tr>
                           <td colSpan={5} className="px-6 py-8 bg-[#faf9f5]">
                             <div className="space-y-8">
-                              {/* Reference links to share */}
-                              <div className="flex flex-wrap gap-3">
-                                <CopyLink label="Copy Pastor Reference Link" url={`${origin}/reference/pastor/${c.id}`} />
-                                <CopyLink label="Copy Relative Reference Link" url={`${origin}/reference/relative/${c.id}`} />
-                              </div>
-
                               {/* Personal & contact */}
                               <div>
                                 <h3 className="font-serif text-lg text-[#570013] mb-3">Personal & Contact Data</h3>
@@ -326,27 +391,53 @@ export default function AdminDashboard() {
                                   <DetailRow label="Date of Birth" value={c.dateOfBirth ? new Date(c.dateOfBirth).toLocaleDateString() : undefined} />
                                   <DetailRow label="Marital Status" value={c.maritalStatus} />
                                   <DetailRow label="Spouse" value={c.spouseName} />
+                                  <DetailRow label="Spouse's Phone" value={c.spousePhone} />
                                   <DetailRow label="Kind of Marriage" value={c.kindOfMarriage} />
                                   <DetailRow label="Occupation" value={c.secularOccupation} />
                                   <DetailRow label="Place of Work" value={c.placeOfWork} />
                                 </div>
                               </div>
 
-                              {/* Spiritual / ministerial */}
+                              {/* Spiritual data */}
                               <div>
-                                <h3 className="font-serif text-lg text-[#570013] mb-3">Spiritual & Ministerial Background</h3>
+                                <h3 className="font-serif text-lg text-[#570013] mb-3">Spiritual Data</h3>
                                 <div className="grid grid-cols-4 gap-4">
                                   <DetailRow label="Regenerated" value={yn(c.isRegenerated)} />
                                   <DetailRow label="Church" value={c.churchName} />
+                                  <DetailRow label="Role in Church" value={c.roleInChurch} />
                                   <DetailRow label="Pastor" value={c.pastorName} />
                                   <DetailRow label="Pastor's Phone" value={c.pastorPhone} />
                                   <DetailRow label="Baptized in Water" value={yn(c.baptizedInWater)} />
+                                  <DetailRow label="Baptized by Immersion" value={yn(c.baptizedByImmersion)} />
                                   <DetailRow label="Baptized in Holy Spirit" value={yn(c.baptizedInHolySpirit)} />
+                                  <DetailRow label="Educational Background" value={c.educationalBackground} />
+                                </div>
+                                <DetailRow label="Regeneration Experience" value={c.regenerationExperience} />
+                                <DetailRow label="Spiritual Gifts" value={c.spiritualGifts} />
+                              </div>
+
+                              {/* Ministerial background */}
+                              <div>
+                                <h3 className="font-serif text-lg text-[#570013] mb-3">Ministerial Background</h3>
+                                <div className="grid grid-cols-4 gap-4">
                                   <DetailRow label="Present Station/Post" value={c.presentStationPost} />
+                                  <DetailRow label="Ordination Date" value={c.ordinationDate ? new Date(c.ordinationDate).toLocaleDateString() : undefined} />
                                   <DetailRow label="Recognized as Pastor/Evangelist" value={yn(c.recognizedAsPastorOrEvangelist)} />
                                   <DetailRow label="Currently Pastoring" value={yn(c.currentlyPastoring)} />
+                                  <DetailRow label="Called to Establish Ministry" value={yn(c.calledToEstablishMinistry)} />
+                                  <DetailRow label="Spouse Supports Ministry" value={yn(c.spouseSupportsMinistry)} />
                                 </div>
                                 <DetailRow label="Spiritual Background" value={c.spiritualBackground} />
+                                {c.servicePosts && c.servicePosts.length > 0 && (
+                                  <div className="mt-2">
+                                    <div className="text-[9px] font-bold text-[#775a19] uppercase tracking-widest mb-1">Stations / Service Posts</div>
+                                    <ul className="text-xs text-[#584141] list-disc list-inside space-y-0.5">
+                                      {c.servicePosts.map((p, i) => (
+                                        <li key={i}>{[p.station, p.post, p.date].filter(Boolean).join(' — ')}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
                               </div>
 
                               {/* Medical / sponsorship */}
@@ -367,6 +458,27 @@ export default function AdminDashboard() {
                                 <div className="grid grid-cols-4 gap-4">
                                   <DetailRow label="Agreed to Rules" value={yn(c.agreedToRules)} />
                                   <DetailRow label="Agreed to Consequences" value={yn(c.agreedToConsequences)} />
+                                </div>
+                              </div>
+
+                              {/* References — full detail, no links */}
+                              <div>
+                                <h3 className="font-serif text-lg text-[#570013] mb-3">References</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                  {pastorRef ? (
+                                    <ReferenceDetail reference={pastorRef} />
+                                  ) : (
+                                    <div className="bg-white border border-dashed border-[#e0bfbf]/40 p-6 text-xs text-[#584141] opacity-50 italic">
+                                      No Pastor's Reference on file.
+                                    </div>
+                                  )}
+                                  {relativeRef ? (
+                                    <ReferenceDetail reference={relativeRef} />
+                                  ) : (
+                                    <div className="bg-white border border-dashed border-[#e0bfbf]/40 p-6 text-xs text-[#584141] opacity-50 italic">
+                                      No Relative's Reference on file.
+                                    </div>
+                                  )}
                                 </div>
                               </div>
 

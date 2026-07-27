@@ -3,7 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from '../components/Navbar';
-import { RefreshCw, Trash2, CheckCircle, XCircle, Clock, LogOut, ChevronDown, ChevronUp } from 'lucide-react';
+import {
+  RefreshCw, Trash2, CheckCircle, XCircle, Clock, LogOut,
+  Search, X, ChevronLeft, ChevronRight, Eye,
+} from 'lucide-react';
 
 interface ReferenceRecord {
   id: string;
@@ -234,11 +237,156 @@ function AcceptanceForm({ candidateId, acceptance, onSaved }: { candidateId: str
   );
 }
 
+function CandidateModal({ candidate, onClose, onChanged }: { candidate: Candidate; onClose: () => void; onChanged: () => void }) {
+  const pastorRef = candidate.references?.find((r) => r.type === 'PASTOR');
+  const relativeRef = candidate.references?.find((r) => r.type === 'RELATIVE');
+
+  // Close on Escape
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/50 p-6" onClick={onClose}>
+      <div
+        className="bg-[#faf9f5] w-full max-w-4xl my-8 shadow-2xl border border-[#e0bfbf]/20 relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="sticky top-0 bg-white border-b border-[#e0bfbf]/20 px-8 py-5 flex justify-between items-center z-10">
+          <div>
+            <h2 className="font-serif text-2xl text-[#570013]">{candidate.fullName}</h2>
+            <p className="text-[10px] text-[#584141] opacity-50 uppercase tracking-widest mt-1">
+              Applied {new Date(candidate.createdAt).toLocaleDateString()} • {candidate.program}
+            </p>
+          </div>
+          <button onClick={onClose} className="p-2 text-[#584141] hover:bg-[#efeeea] rounded-full transition-colors">
+            <X size={20} />
+          </button>
+        </div>
+
+        <div className="px-8 py-8 space-y-8">
+          <div>
+            <h3 className="font-serif text-lg text-[#570013] mb-3">Personal & Contact Data</h3>
+            <div className="grid grid-cols-4 gap-4">
+              <DetailRow label="Email" value={candidate.email} />
+              <DetailRow label="Phone" value={candidate.phone} />
+              <DetailRow label="Residential Address" value={candidate.residentialAddress} />
+              <DetailRow label="Home Town" value={candidate.homeTownAddress} />
+              <DetailRow label="Nationality" value={candidate.nationality} />
+              <DetailRow label="Place of Birth" value={candidate.placeOfBirth} />
+              <DetailRow label="Date of Birth" value={candidate.dateOfBirth ? new Date(candidate.dateOfBirth).toLocaleDateString() : undefined} />
+              <DetailRow label="Marital Status" value={candidate.maritalStatus} />
+              <DetailRow label="Spouse" value={candidate.spouseName} />
+              <DetailRow label="Spouse's Phone" value={candidate.spousePhone} />
+              <DetailRow label="Kind of Marriage" value={candidate.kindOfMarriage} />
+              <DetailRow label="Occupation" value={candidate.secularOccupation} />
+              <DetailRow label="Place of Work" value={candidate.placeOfWork} />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-serif text-lg text-[#570013] mb-3">Spiritual Data</h3>
+            <div className="grid grid-cols-4 gap-4">
+              <DetailRow label="Regenerated" value={yn(candidate.isRegenerated)} />
+              <DetailRow label="Church" value={candidate.churchName} />
+              <DetailRow label="Role in Church" value={candidate.roleInChurch} />
+              <DetailRow label="Pastor" value={candidate.pastorName} />
+              <DetailRow label="Pastor's Phone" value={candidate.pastorPhone} />
+              <DetailRow label="Baptized in Water" value={yn(candidate.baptizedInWater)} />
+              <DetailRow label="Baptized by Immersion" value={yn(candidate.baptizedByImmersion)} />
+              <DetailRow label="Baptized in Holy Spirit" value={yn(candidate.baptizedInHolySpirit)} />
+              <DetailRow label="Educational Background" value={candidate.educationalBackground} />
+            </div>
+            <DetailRow label="Regeneration Experience" value={candidate.regenerationExperience} />
+            <DetailRow label="Spiritual Gifts" value={candidate.spiritualGifts} />
+          </div>
+
+          <div>
+            <h3 className="font-serif text-lg text-[#570013] mb-3">Ministerial Background</h3>
+            <div className="grid grid-cols-4 gap-4">
+              <DetailRow label="Present Station/Post" value={candidate.presentStationPost} />
+              <DetailRow label="Ordination Date" value={candidate.ordinationDate ? new Date(candidate.ordinationDate).toLocaleDateString() : undefined} />
+              <DetailRow label="Recognized as Pastor/Evangelist" value={yn(candidate.recognizedAsPastorOrEvangelist)} />
+              <DetailRow label="Currently Pastoring" value={yn(candidate.currentlyPastoring)} />
+              <DetailRow label="Called to Establish Ministry" value={yn(candidate.calledToEstablishMinistry)} />
+              <DetailRow label="Spouse Supports Ministry" value={yn(candidate.spouseSupportsMinistry)} />
+            </div>
+            <DetailRow label="Spiritual Background" value={candidate.spiritualBackground} />
+            {candidate.servicePosts && candidate.servicePosts.length > 0 && (
+              <div className="mt-2">
+                <div className="text-[9px] font-bold text-[#775a19] uppercase tracking-widest mb-1">Stations / Service Posts</div>
+                <ul className="text-xs text-[#584141] list-disc list-inside space-y-0.5">
+                  {candidate.servicePosts.map((p, i) => (
+                    <li key={i}>{[p.station, p.post, p.date].filter(Boolean).join(' — ')}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <div>
+            <h3 className="font-serif text-lg text-[#570013] mb-3">Medical Fitness & Sponsorship</h3>
+            <div className="grid grid-cols-4 gap-4">
+              <DetailRow label="Illnesses" value={candidate.illnesses && candidate.illnesses.length > 0 ? candidate.illnesses.join(', ') : 'None declared'} />
+              <DetailRow label="Declared Free from Illness" value={yn(candidate.freeFromIllness)} />
+              <DetailRow label="Sponsorship" value={candidate.sponsorshipType === 'SELF' ? 'Self-sponsored' : candidate.sponsorshipType === 'SPONSORED' ? 'Sponsored' : undefined} />
+              <DetailRow label="Sponsor" value={candidate.sponsorName} />
+              <DetailRow label="Sponsor Address" value={candidate.sponsorAddress} />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-serif text-lg text-[#570013] mb-3">Rules & Consequences</h3>
+            <div className="grid grid-cols-4 gap-4">
+              <DetailRow label="Agreed to Rules" value={yn(candidate.agreedToRules)} />
+              <DetailRow label="Agreed to Consequences" value={yn(candidate.agreedToConsequences)} />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-serif text-lg text-[#570013] mb-3">References</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {pastorRef ? (
+                <ReferenceDetail reference={pastorRef} />
+              ) : (
+                <div className="bg-white border border-dashed border-[#e0bfbf]/40 p-6 text-xs text-[#584141] opacity-50 italic">
+                  No Pastor's Reference on file.
+                </div>
+              )}
+              {relativeRef ? (
+                <ReferenceDetail reference={relativeRef} />
+              ) : (
+                <div className="bg-white border border-dashed border-[#e0bfbf]/40 p-6 text-xs text-[#584141] opacity-50 italic">
+                  No Relative's Reference on file.
+                </div>
+              )}
+            </div>
+          </div>
+
+          {candidate.status === 'APPROVED' && (
+            <AcceptanceForm candidateId={candidate.id} acceptance={candidate.acceptance} onSaved={onChanged} />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AdminDashboard() {
   const router = useRouter();
   const [candidates, setCandidates] = useState<Candidate[]>([]);
   const [loading, setLoading] = useState(true);
-  const [expanded, setExpanded] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Candidate | null>(null);
+
+  const [searchInput, setSearchInput] = useState('');
+  const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [total, setTotal] = useState(0);
 
   const handleLogout = async () => {
     await fetch('/api/admin/logout', { method: 'POST' });
@@ -246,17 +394,42 @@ export default function AdminDashboard() {
     router.refresh();
   };
 
-  const fetchCandidates = async () => {
+  const fetchCandidates = async (opts?: { q?: string; page?: number }) => {
     setLoading(true);
     try {
-      const res = await fetch('/api/admin/candidates');
+      const q = opts?.q ?? query;
+      const p = opts?.page ?? page;
+      const params = new URLSearchParams({ page: String(p) });
+      if (q) params.set('q', q);
+      const res = await fetch(`/api/admin/candidates?${params.toString()}`);
       const data = await res.json();
-      setCandidates(data);
+      setCandidates(data.candidates || []);
+      setTotalPages(data.totalPages || 1);
+      setTotal(data.total || 0);
     } catch (err) {
       console.error(err);
     } finally {
       setLoading(false);
     }
+  };
+
+  const runSearch = () => {
+    setQuery(searchInput);
+    setPage(1);
+    fetchCandidates({ q: searchInput, page: 1 });
+  };
+
+  const clearSearch = () => {
+    setSearchInput('');
+    setQuery('');
+    setPage(1);
+    fetchCandidates({ q: '', page: 1 });
+  };
+
+  const goToPage = (p: number) => {
+    if (p < 1 || p > totalPages) return;
+    setPage(p);
+    fetchCandidates({ page: p });
   };
 
   const updateStatus = async (id: string, status: string) => {
@@ -267,6 +440,7 @@ export default function AdminDashboard() {
         body: JSON.stringify({ status }),
       });
       fetchCandidates();
+      setSelected((prev) => (prev && prev.id === id ? { ...prev, status: status as Candidate['status'] } : prev));
     } catch (err) {
       console.error(err);
     }
@@ -276,6 +450,7 @@ export default function AdminDashboard() {
     if (!confirm('Are you sure you want to delete this registration?')) return;
     try {
       await fetch(`/api/admin/candidates/${id}`, { method: 'DELETE' });
+      setSelected((prev) => (prev && prev.id === id ? null : prev));
       fetchCandidates();
     } catch (err) {
       console.error(err);
@@ -284,6 +459,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchCandidates();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -291,19 +467,42 @@ export default function AdminDashboard() {
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-8 py-20">
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex justify-between items-end mb-8">
           <div>
             <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-widest block mb-2">Admin Portal</span>
             <h1 className="font-serif text-4xl text-[#570013]">Registrations</h1>
           </div>
           <div className="flex gap-3">
-            <button onClick={fetchCandidates} className="flex items-center gap-2 px-4 py-2 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest hover:bg-[#efeeea] transition-colors">
+            <button onClick={() => fetchCandidates()} className="flex items-center gap-2 px-4 py-2 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest hover:bg-[#efeeea] transition-colors">
               <RefreshCw size={14} className={loading ? 'animate-spin' : ''} /> Refresh
             </button>
             <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest text-[#570013] hover:bg-[#efeeea] transition-colors">
               <LogOut size={14} /> Logout
             </button>
           </div>
+        </div>
+
+        {/* Search bar */}
+        <div className="flex gap-3 mb-6">
+          <div className="relative flex-1 max-w-md">
+            <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#775a19] opacity-60" />
+            <input
+              type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && runSearch()}
+              placeholder="Search by name, phone, or email..."
+              className="w-full bg-white border border-[#e0bfbf]/30 pl-10 pr-4 py-3 text-xs outline-none focus:border-[#775a19]"
+            />
+          </div>
+          <button onClick={runSearch} className="px-6 py-3 bg-[#570013] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#800020] transition-colors">
+            Search
+          </button>
+          {query && (
+            <button onClick={clearSearch} className="px-4 py-3 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest text-[#584141] hover:bg-[#efeeea] transition-colors">
+              Clear
+            </button>
+          )}
         </div>
 
         <div className="bg-white shadow-sm border border-[#e0bfbf]/20 overflow-hidden">
@@ -321,183 +520,95 @@ export default function AdminDashboard() {
               {candidates.length === 0 && !loading ? (
                 <tr>
                   <td colSpan={5} className="px-6 py-20 text-center text-[#584141] opacity-50 italic text-sm">
-                    No registrations found.
+                    {query ? `No registrations match "${query}".` : 'No registrations found.'}
                   </td>
                 </tr>
               ) : (
                 candidates.map((c) => {
                   const pastorRef = c.references?.find((r) => r.type === 'PASTOR');
                   const relativeRef = c.references?.find((r) => r.type === 'RELATIVE');
-                  const isOpen = expanded === c.id;
                   return (
-                    <React.Fragment key={c.id}>
-                      <tr className="hover:bg-[#faf9f5]/50 transition-colors cursor-pointer" onClick={() => setExpanded(isOpen ? null : c.id)}>
-                        <td className="px-6 py-6">
-                          <div className="flex items-center gap-2">
-                            {isOpen ? <ChevronUp size={14} className="text-[#775a19]" /> : <ChevronDown size={14} className="text-[#775a19]" />}
-                            <div>
-                              <div className="font-bold text-[#570013] text-sm">{c.fullName}</div>
-                              <div className="text-[10px] opacity-40 uppercase tracking-tighter mt-1">Applied: {new Date(c.createdAt).toLocaleDateString()}</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-6 text-xs text-[#584141]">{c.program}</td>
-                        <td className="px-6 py-6 text-xs text-[#584141]">
-                          <span className={pastorRef ? 'text-green-700' : 'opacity-40'}>Pastor {pastorRef ? '✓' : '—'}</span>
-                          {' / '}
-                          <span className={relativeRef ? 'text-green-700' : 'opacity-40'}>Relative {relativeRef ? '✓' : '—'}</span>
-                        </td>
-                        <td className="px-6 py-6">
-                          <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest ${
-                            c.status === 'APPROVED' ? 'bg-green-100 text-green-700' :
-                            c.status === 'REJECTED' ? 'bg-red-100 text-red-700' :
-                            'bg-amber-100 text-amber-700'
-                          }`}>
-                            {c.status === 'APPROVED' && <CheckCircle size={10} />}
-                            {c.status === 'REJECTED' && <XCircle size={10} />}
-                            {c.status === 'PENDING' && <Clock size={10} />}
-                            {c.status}
-                          </span>
-                        </td>
-                        <td className="px-6 py-6 text-right" onClick={(e) => e.stopPropagation()}>
-                          <div className="flex justify-end gap-2">
-                            <button onClick={() => updateStatus(c.id, 'APPROVED')} className="p-2 text-green-600 hover:bg-green-50 rounded transition-colors" title="Approve">
-                              <CheckCircle size={18} />
-                            </button>
-                            <button onClick={() => updateStatus(c.id, 'REJECTED')} className="p-2 text-red-600 hover:bg-red-50 rounded transition-colors" title="Reject">
-                              <XCircle size={18} />
-                            </button>
-                            <button onClick={() => deleteCandidate(c.id)} className="p-2 text-gray-400 hover:bg-gray-100 rounded transition-colors ml-2" title="Delete">
-                              <Trash2 size={18} />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-
-                      {isOpen && (
-                        <tr>
-                          <td colSpan={5} className="px-6 py-8 bg-[#faf9f5]">
-                            <div className="space-y-8">
-                              {/* Personal & contact */}
-                              <div>
-                                <h3 className="font-serif text-lg text-[#570013] mb-3">Personal & Contact Data</h3>
-                                <div className="grid grid-cols-4 gap-4">
-                                  <DetailRow label="Email" value={c.email} />
-                                  <DetailRow label="Phone" value={c.phone} />
-                                  <DetailRow label="Residential Address" value={c.residentialAddress} />
-                                  <DetailRow label="Home Town" value={c.homeTownAddress} />
-                                  <DetailRow label="Nationality" value={c.nationality} />
-                                  <DetailRow label="Place of Birth" value={c.placeOfBirth} />
-                                  <DetailRow label="Date of Birth" value={c.dateOfBirth ? new Date(c.dateOfBirth).toLocaleDateString() : undefined} />
-                                  <DetailRow label="Marital Status" value={c.maritalStatus} />
-                                  <DetailRow label="Spouse" value={c.spouseName} />
-                                  <DetailRow label="Spouse's Phone" value={c.spousePhone} />
-                                  <DetailRow label="Kind of Marriage" value={c.kindOfMarriage} />
-                                  <DetailRow label="Occupation" value={c.secularOccupation} />
-                                  <DetailRow label="Place of Work" value={c.placeOfWork} />
-                                </div>
-                              </div>
-
-                              {/* Spiritual data */}
-                              <div>
-                                <h3 className="font-serif text-lg text-[#570013] mb-3">Spiritual Data</h3>
-                                <div className="grid grid-cols-4 gap-4">
-                                  <DetailRow label="Regenerated" value={yn(c.isRegenerated)} />
-                                  <DetailRow label="Church" value={c.churchName} />
-                                  <DetailRow label="Role in Church" value={c.roleInChurch} />
-                                  <DetailRow label="Pastor" value={c.pastorName} />
-                                  <DetailRow label="Pastor's Phone" value={c.pastorPhone} />
-                                  <DetailRow label="Baptized in Water" value={yn(c.baptizedInWater)} />
-                                  <DetailRow label="Baptized by Immersion" value={yn(c.baptizedByImmersion)} />
-                                  <DetailRow label="Baptized in Holy Spirit" value={yn(c.baptizedInHolySpirit)} />
-                                  <DetailRow label="Educational Background" value={c.educationalBackground} />
-                                </div>
-                                <DetailRow label="Regeneration Experience" value={c.regenerationExperience} />
-                                <DetailRow label="Spiritual Gifts" value={c.spiritualGifts} />
-                              </div>
-
-                              {/* Ministerial background */}
-                              <div>
-                                <h3 className="font-serif text-lg text-[#570013] mb-3">Ministerial Background</h3>
-                                <div className="grid grid-cols-4 gap-4">
-                                  <DetailRow label="Present Station/Post" value={c.presentStationPost} />
-                                  <DetailRow label="Ordination Date" value={c.ordinationDate ? new Date(c.ordinationDate).toLocaleDateString() : undefined} />
-                                  <DetailRow label="Recognized as Pastor/Evangelist" value={yn(c.recognizedAsPastorOrEvangelist)} />
-                                  <DetailRow label="Currently Pastoring" value={yn(c.currentlyPastoring)} />
-                                  <DetailRow label="Called to Establish Ministry" value={yn(c.calledToEstablishMinistry)} />
-                                  <DetailRow label="Spouse Supports Ministry" value={yn(c.spouseSupportsMinistry)} />
-                                </div>
-                                <DetailRow label="Spiritual Background" value={c.spiritualBackground} />
-                                {c.servicePosts && c.servicePosts.length > 0 && (
-                                  <div className="mt-2">
-                                    <div className="text-[9px] font-bold text-[#775a19] uppercase tracking-widest mb-1">Stations / Service Posts</div>
-                                    <ul className="text-xs text-[#584141] list-disc list-inside space-y-0.5">
-                                      {c.servicePosts.map((p, i) => (
-                                        <li key={i}>{[p.station, p.post, p.date].filter(Boolean).join(' — ')}</li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                )}
-                              </div>
-
-                              {/* Medical / sponsorship */}
-                              <div>
-                                <h3 className="font-serif text-lg text-[#570013] mb-3">Medical Fitness & Sponsorship</h3>
-                                <div className="grid grid-cols-4 gap-4">
-                                  <DetailRow label="Illnesses" value={c.illnesses && c.illnesses.length > 0 ? c.illnesses.join(', ') : 'None declared'} />
-                                  <DetailRow label="Declared Free from Illness" value={yn(c.freeFromIllness)} />
-                                  <DetailRow label="Sponsorship" value={c.sponsorshipType === 'SELF' ? 'Self-sponsored' : c.sponsorshipType === 'SPONSORED' ? 'Sponsored' : undefined} />
-                                  <DetailRow label="Sponsor" value={c.sponsorName} />
-                                  <DetailRow label="Sponsor Address" value={c.sponsorAddress} />
-                                </div>
-                              </div>
-
-                              {/* Rules acceptance */}
-                              <div>
-                                <h3 className="font-serif text-lg text-[#570013] mb-3">Rules & Consequences</h3>
-                                <div className="grid grid-cols-4 gap-4">
-                                  <DetailRow label="Agreed to Rules" value={yn(c.agreedToRules)} />
-                                  <DetailRow label="Agreed to Consequences" value={yn(c.agreedToConsequences)} />
-                                </div>
-                              </div>
-
-                              {/* References — full detail, no links */}
-                              <div>
-                                <h3 className="font-serif text-lg text-[#570013] mb-3">References</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                  {pastorRef ? (
-                                    <ReferenceDetail reference={pastorRef} />
-                                  ) : (
-                                    <div className="bg-white border border-dashed border-[#e0bfbf]/40 p-6 text-xs text-[#584141] opacity-50 italic">
-                                      No Pastor's Reference on file.
-                                    </div>
-                                  )}
-                                  {relativeRef ? (
-                                    <ReferenceDetail reference={relativeRef} />
-                                  ) : (
-                                    <div className="bg-white border border-dashed border-[#e0bfbf]/40 p-6 text-xs text-[#584141] opacity-50 italic">
-                                      No Relative's Reference on file.
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-
-                              {/* Acceptance form, only for approved candidates */}
-                              {c.status === 'APPROVED' && (
-                                <AcceptanceForm candidateId={c.id} acceptance={c.acceptance} onSaved={fetchCandidates} />
-                              )}
-                            </div>
-                          </td>
-                        </tr>
-                      )}
-                    </React.Fragment>
+                    <tr key={c.id} className="hover:bg-[#faf9f5]/50 transition-colors">
+                      <td className="px-6 py-6">
+                        <div className="font-bold text-[#570013] text-sm">{c.fullName}</div>
+                        <div className="text-[10px] opacity-40 uppercase tracking-tighter mt-1">Applied: {new Date(c.createdAt).toLocaleDateString()}</div>
+                        <div className="text-[10px] opacity-50 mt-0.5">{c.email} • {c.phone}</div>
+                      </td>
+                      <td className="px-6 py-6 text-xs text-[#584141]">{c.program}</td>
+                      <td className="px-6 py-6 text-xs text-[#584141]">
+                        <span className={pastorRef ? 'text-green-700' : 'opacity-40'}>Pastor {pastorRef ? '✓' : '—'}</span>
+                        {' / '}
+                        <span className={relativeRef ? 'text-green-700' : 'opacity-40'}>Relative {relativeRef ? '✓' : '—'}</span>
+                      </td>
+                      <td className="px-6 py-6">
+                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest ${
+                          c.status === 'APPROVED' ? 'bg-green-100 text-green-700' :
+                          c.status === 'REJECTED' ? 'bg-red-100 text-red-700' :
+                          'bg-amber-100 text-amber-700'
+                        }`}>
+                          {c.status === 'APPROVED' && <CheckCircle size={10} />}
+                          {c.status === 'REJECTED' && <XCircle size={10} />}
+                          {c.status === 'PENDING' && <Clock size={10} />}
+                          {c.status}
+                        </span>
+                      </td>
+                      <td className="px-6 py-6 text-right">
+                        <div className="flex justify-end gap-2">
+                          <button onClick={() => setSelected(c)} className="p-2 text-[#570013] hover:bg-[#efeeea] rounded transition-colors" title="View Details">
+                            <Eye size={18} />
+                          </button>
+                          <button onClick={() => updateStatus(c.id, 'APPROVED')} className="p-2 text-green-600 hover:bg-green-50 rounded transition-colors" title="Approve">
+                            <CheckCircle size={18} />
+                          </button>
+                          <button onClick={() => updateStatus(c.id, 'REJECTED')} className="p-2 text-red-600 hover:bg-red-50 rounded transition-colors" title="Reject">
+                            <XCircle size={18} />
+                          </button>
+                          <button onClick={() => deleteCandidate(c.id)} className="p-2 text-gray-400 hover:bg-gray-100 rounded transition-colors ml-2" title="Delete">
+                            <Trash2 size={18} />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
                   );
                 })
               )}
             </tbody>
           </table>
         </div>
+
+        {/* Pagination */}
+        {total > 0 && (
+          <div className="flex justify-between items-center mt-6">
+            <p className="text-[10px] text-[#584141] opacity-50 uppercase tracking-widest">
+              Page {page} of {totalPages} • {total} total
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => goToPage(page - 1)}
+                disabled={page <= 1}
+                className="flex items-center gap-1 px-4 py-2 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest text-[#584141] hover:bg-[#efeeea] transition-colors disabled:opacity-30"
+              >
+                <ChevronLeft size={14} /> Prev
+              </button>
+              <button
+                onClick={() => goToPage(page + 1)}
+                disabled={page >= totalPages}
+                className="flex items-center gap-1 px-4 py-2 bg-white border border-[#e0bfbf]/30 text-[10px] font-bold uppercase tracking-widest text-[#584141] hover:bg-[#efeeea] transition-colors disabled:opacity-30"
+              >
+                Next <ChevronRight size={14} />
+              </button>
+            </div>
+          </div>
+        )}
       </main>
+
+      {selected && (
+        <CandidateModal
+          candidate={selected}
+          onClose={() => setSelected(null)}
+          onChanged={() => fetchCandidates()}
+        />
+      )}
     </div>
   );
 }

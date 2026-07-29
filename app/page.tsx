@@ -110,7 +110,7 @@ export default function TheologySchool() {
           {[
             { name: 'Pastor Dr S A Ajifolokun', role: 'Chairman', img: '/Boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg' },
             { name: 'Evang Dr. Mrs Victoria Oluremi Ajifolokun', role: 'Founder / Director of Studies', img: '/Boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg' },
-            { name: 'Bro Engr Emmanuel E. Ajifolokun Oluremi', role: 'Coordinator', img: '/Boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg' },
+            { name: 'Engr Emmanuel E. Ajifolokun', role: 'Coordinator', img: '/Boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg' },
             { name: 'Pastor Dr. Henry Olubunmi Adesemoye', role: 'Dean', img: '/Boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg' },
             { name: 'Pastor Dr J.A. Adeleye', role: 'Registrar', img: '/Boards/WhatsApp Image 2026-05-07 at 8.38.20 PM.jpeg' },
             { name: 'Patron Dr. Isaac .O. Ogundipe', role: 'Patron', img: '/Boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg' },

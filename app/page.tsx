@@ -108,7 +108,7 @@ export default function TheologySchool() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { name: 'Pastor Dr S A Ajifolokun', role: 'Chairman', img: '/Boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg' },
+            { name: 'Pastor Dr S A Ajifolokun', role: 'Chairman Governing Council', img: '/Boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg' },
             { name: 'Evang Dr. Mrs Victoria Oluremi Ajifolokun', role: 'Founder / Director of Studies', img: '/Boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg' },
             { name: 'Engr Emmanuel E. Ajifolokun', role: 'Coordinator', img: '/Boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg' },
             { name: 'Pastor Dr. Henry Olubunmi Adesemoye', role: 'Dean', img: '/Boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg' },
@@ -134,66 +134,7 @@ export default function TheologySchool() {
         </div>
       </section>
 
-      {/* Leadership Highlight Section */}
-      <section className="py-24 px-8 md:px-12 max-w-7xl mx-auto border-t border-[#e0bfbf]/10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <AnimatedSection direction="left" className="relative">
-            <div className="aspect-[4/5] overflow-hidden rounded-sm shadow-2xl relative z-10 bg-stone-100">
-              <LazyImage
-                src="/Boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg"
-                fill
-                className="object-cover"
-                alt="Chairman Governing Council"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 bg-[#570013] text-white p-8 shadow-xl z-20">
-              <h4 className="font-serif text-xl mb-1">Pastor Dr S A Ajifolokun</h4>
-              <p className="text-[10px] font-bold uppercase tracking-widest opacity-70">Chairman Governing Council</p>
-            </div>
-          </AnimatedSection>
 
-          <AnimatedSection direction="right">
-            <span className="text-[10px] font-bold text-[#775a19] uppercase tracking-[0.2em] block mb-4">Leadership Voice</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#570013] mb-8">Guided by Divine Vision and Academic Excellence</h2>
-            <p className="text-[#584141] text-lg leading-relaxed opacity-80 mb-10">
-              Our Governing Council provides the spiritual oversight and strategic direction necessary to ensure Christ-Pattern Bible College remains a beacon of theological integrity.
-            </p>
-            <div className="grid grid-cols-2 gap-8 mb-12">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#e0bfbf] relative">
-                  <LazyImage
-                    src="/Boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg"
-                    fill
-                    className="object-cover"
-                    alt="Patron"
-                  />
-                </div>
-                <div>
-                  <h5 className="font-bold text-xs text-[#570013]">Patron Dr. Isaac .O. Ogundipe</h5>
-                  <p className="text-[9px] uppercase tracking-tighter opacity-60">College Patron</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#e0bfbf] relative">
-                  <LazyImage
-                    src="/Boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg"
-                    fill
-                    className="object-cover"
-                    alt="Board Member"
-                  />
-                </div>
-                <div>
-                  <h5 className="font-bold text-xs text-[#570013]">Pastor Dr. Henry O. Adesemoye</h5>
-                  <p className="text-[9px] uppercase tracking-tighter opacity-60">Board Member</p>
-                </div>
-              </div>
-            </div>
-            <Link href="/about" className="inline-flex items-center gap-3 px-8 py-4 bg-[#775a19] text-white font-bold text-xs uppercase tracking-widest">
-              Meet the Full Council <ArrowRight size={16} />
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* Quote Section */}
       <section className="py-24 bg-[#efeeea] overflow-hidden relative">

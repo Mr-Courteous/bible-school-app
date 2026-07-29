@@ -1,9 +1,34 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+export const metadataBase = new URL('https://www.christ-patternbiblecollege.com');
+
 export const metadata: Metadata = {
-  title: 'Bible School App',
-  description: 'A theology school landing page built with Next.js',
+  title: { default: 'Christ Pattern Bible College', template: '%s | Christ Pattern Bible College' },
+  description:
+    'Christ Pattern Bible College — official site for applications, programs, and resources for theological education.',
+  authors: [{ name: 'Christ Pattern Bible College', url: 'https://www.christ-patternbiblecollege.com' }],
+  themeColor: '#ffffff',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  openGraph: {
+    title: 'Christ Pattern Bible College',
+    description:
+      'Apply to theology programs, access resources, and manage applications at Christ Pattern Bible College.',
+    siteName: 'Christ Pattern Bible College',
+    images: ['/set/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Christ Pattern Bible College',
+    description:
+      'Apply to theology programs, access resources, and manage applications at Christ Pattern Bible College.',
+    images: ['/set/og-image.png'],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

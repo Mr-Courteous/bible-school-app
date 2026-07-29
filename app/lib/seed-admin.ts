@@ -3,6 +3,8 @@ import { hashPassword } from './auth';
 
 export async function seedAdmin() {
   try {
+    console.log('[seed-admin] (app) env ADMIN_EMAIL:', process.env.ADMIN_EMAIL);
+    console.log('[seed-admin] (app) env ADMIN_PASSWORD present:', !!process.env.ADMIN_PASSWORD);
     const existing = await prisma.admin.findFirst();
     if (existing) return; // already seeded — never overwrite a real admin
 

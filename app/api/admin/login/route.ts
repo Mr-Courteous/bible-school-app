@@ -10,7 +10,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Email and password are required' }, { status: 400 });
     }
 
-    const admin = await prisma.admin.findUnique({ where: { email } });
+    const normalizedEmail = String(email).trim().toLowerCase();
+    const admin = await prisma.admin.findUnique({ where: { email: normalizedEmail } });
     if (!admin) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
     }

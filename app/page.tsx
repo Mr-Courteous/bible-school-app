@@ -303,13 +303,13 @@ export default function TheologySchool() {
               Admission in Progress
             </span>
             <h2 className="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">
-              Enrol Now &amp; Be Equipped for Dynamic Theological Training
+              Admission in Progress to impact adequate skill for dynamic theological training.
             </h2>
             <p className="text-white/80 text-lg mb-8 leading-relaxed">
               We offer <strong className="text-[#e9c176]">Part-time</strong>, <strong className="text-[#e9c176]">Full-time</strong>, <strong className="text-[#e9c176]">Weekend</strong> and <strong className="text-[#e9c176]">Sandwich</strong> Courses to fit your schedule and calling.
             </p>
             <div className="mb-10">
-              <h3 className="text-[10px] font-bold uppercase tracking-widest text-[#e9c176] mb-5">Programmes Available</h3>
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-[#e9c176] mb-5">Enrol Now for</h3>
               <ul className="space-y-3">
                 {[
                   'Certificate in Evangelism & Mission',
@@ -342,7 +342,8 @@ export default function TheologySchool() {
             <div className="space-y-4 mb-8">
               <p className="text-white/80 text-sm">
                 <span className="font-bold text-[#e9c176] block text-[10px] uppercase tracking-widest mb-1">Address</span>
-                Abiola Adedoja Crescent, Odiolowo, Ilesa
+                Abiola Adedoja Crescent<br />
+                Odiolowo Ilesa
               </p>
             </div>
             <div>

@@ -294,22 +294,73 @@ export default function TheologySchool() {
 
 
 
-      {/* Footer CTA */}
-      <AnimatedSection direction="none">
-        <section className="py-20 bg-[#570013] text-center text-white">
-          <h2 className="font-serif text-4xl mb-6">Begin Your Scholarly Journey</h2>
-          <p className="max-w-xl mx-auto opacity-80 mb-10 px-6">Applications for the upcoming semester are now open. Experience a curriculum designed for depth, discipline, and devotion.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center px-6">
-            <Link
-              href="/apply"
-              className="px-10 py-4 bg-[#775a19] font-bold block text-center"
-            >
-              Start Application
-            </Link>
-            <Link href="/contact" className="px-10 py-4 border border-white/30 font-bold block text-center">Request Information</Link>
+      {/* Admission Section */}
+      <section className="py-24 px-8 md:px-12 bg-[#570013] text-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Left: Admission Info */}
+          <div>
+            <span className="inline-block px-4 py-1 mb-6 border border-white/30 text-white uppercase tracking-widest text-[10px] bg-white/10 backdrop-blur-md rounded-full">
+              Admission in Progress
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">
+              Enrol Now &amp; Be Equipped for Dynamic Theological Training
+            </h2>
+            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+              We offer <strong className="text-[#e9c176]">Part-time</strong>, <strong className="text-[#e9c176]">Full-time</strong>, <strong className="text-[#e9c176]">Weekend</strong> and <strong className="text-[#e9c176]">Sandwich</strong> Courses to fit your schedule and calling.
+            </p>
+            <div className="mb-10">
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-[#e9c176] mb-5">Programmes Available</h3>
+              <ul className="space-y-3">
+                {[
+                  'Certificate in Evangelism & Mission',
+                  'Diploma in Theology',
+                  'Bachelor in Theology',
+                  'Master in Theology and Mission',
+                  'Doctorate in Theology / Divinity',
+                ].map((programme) => (
+                  <li key={programme} className="flex items-start gap-3">
+                    <span className="mt-1 w-2 h-2 rounded-full bg-[#e9c176] shrink-0" />
+                    <span className="text-white/90 font-medium">{programme}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/apply" className="px-10 py-4 bg-[#775a19] text-white font-bold text-center">
+                Apply Now
+              </Link>
+              <Link href="/programs" className="px-10 py-4 border border-white/30 text-white font-bold text-center">
+                View Programmes
+              </Link>
+            </div>
           </div>
-        </section>
-      </AnimatedSection>
+
+          {/* Right: Contact / Enquiries */}
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-sm p-10">
+            <h3 className="font-serif text-2xl text-white mb-2">For Enquiries</h3>
+            <p className="text-white/60 text-xs uppercase tracking-widest mb-8">Christ-Pattern Bible College &mdash; Interdenominational</p>
+            <div className="space-y-4 mb-8">
+              <p className="text-white/80 text-sm">
+                <span className="font-bold text-[#e9c176] block text-[10px] uppercase tracking-widest mb-1">Address</span>
+                Abiola Adedoja Crescent, Odiolowo, Ilesa
+              </p>
+            </div>
+            <div>
+              <span className="font-bold text-[#e9c176] block text-[10px] uppercase tracking-widest mb-4">Phone Numbers</span>
+              <div className="space-y-3">
+                {['08056404396', '0810 728 2511', '0803 857 1189', '0814 623 8217'].map((num) => (
+                  <a key={num} href={`tel:${num.replace(/\s/g, '')}`} className="flex items-center gap-3 group">
+                    <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-[#e9c176] shrink-0 group-hover:bg-white/20 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+                    </span>
+                    <span className="text-white/90 font-mono text-sm group-hover:text-[#e9c176] transition">{num}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Main Footer */}
       <footer className="bg-[#faf9f5] py-20 px-8 md:px-12 border-t border-[#e0bfbf]/20">
@@ -344,13 +395,12 @@ export default function TheologySchool() {
           <StaggerItem>
             <h5 className="font-bold text-[#570013] uppercase tracking-widest text-[10px] mb-6">Contact</h5>
             <div className="opacity-70 space-y-4 italic text-xs">
-              <p>No 1, Abiola Adedoja Crescent, Ilesa, Osun State, Nigeria</p>
+              <p>Abiola Adedoja Crescent, Odiolowo, Ilesa</p>
               <div className="space-y-1">
-                <p>08033514808</p>
                 <p>08056404396</p>
-                <p>08038571189</p>
-                <p>08107282511 (Registerer)</p>
-                <p>08146238217 (Deen)</p>
+                <p>0810 728 2511</p>
+                <p>0803 857 1189</p>
+                <p>0814 623 8217</p>
               </div>
             </div>
           </StaggerItem>

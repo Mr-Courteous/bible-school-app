@@ -186,16 +186,14 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-bold text-[#570013] text-sm">Permanent Address Site</h4>
                     <p className="text-xs text-[#584141] opacity-60 leading-relaxed mt-1">
-                      V.I.O house area, No 1, Abiola Adedoja Crescent,<br />
-                      back CAC Boluwatife District Headquarters, Oke-Ayo,<br />
-                      Odi-olowo Community, ILESA, Osun State, Nigeria.
+                      Abiola Adedoja Crescent,<br />
+                      Odiolowo, Ilesa, Osun State, Nigeria.
                     </p>
                     <div className="text-xs text-[#775a19] mt-3 font-bold space-y-1">
-                      <p>08033514808</p>
                       <p>08056404396</p>
-                      <p>08038571189</p>
-                      <p>08107282511 (Registerer)</p>
-                      <p>08146238217 (Deen)</p>
+                      <p>0810 728 2511</p>
+                      <p>0803 857 1189</p>
+                      <p>0814 623 8217</p>
                     </div>
                   </div>
                 </div>

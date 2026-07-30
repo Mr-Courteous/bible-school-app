@@ -180,11 +180,8 @@ export default function AboutPage() {
               { name: "Pastor Dr S A Ajifolokun", role: "Chairman Governing Council", img: "/Boards/WhatsApp Image 2026-04-28 at 10.00.05 PM.jpeg" },
               { name: "Evang Dr. Mrs Victoria Oluremi Ajifolokun", role: "Co-founder", img: "/Boards/WhatsApp Image 2026-04-28 at 10.03.24 PM.jpeg" },
               { name: "Pastor Festus Adagunodo", role: "Senior Pastor Redemption for the Nations, Ilesa, Nigeria", img: "/Boards/WhatsApp Image 2026-04-28 at 10.06.36 PM.jpeg" },
-              { name: "Pastor Dr. F.F Adagunodo", role: "Board Secretary", img: "/Boards/WhatsApp Image 2026-04-28 at 10.12.06 PM.jpeg" },
-              { name: "Oba HRH Dr. Peter Babatunde Ojo", role: "The Akimo of Ikimo Ijesa (Board Member)", img: "/Boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg" },
+              { name: "Pastor Dr. F.F Adagunodo", role: "Board Secretary", img: "/Boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg" },
               { name: "Engr Emmanuel E. Ajifolokun", role: "Board Member", img: "/Boards/WhatsApp Image 2026-04-29 at 9.43.06 AM.jpeg" },
-              { name: "", role: "Board Member", img: "/Boards/WhatsApp Image 2026-05-04 at 2.55.35 PM.jpeg" },
-
               { name: "Pastor Dr J.A. Adeleye", role: "Board Member", img: "/Boards/WhatsApp Image 2026-05-07 at 8.38.20 PM.jpeg" },
 
             ].map((member, i) => (
@@ -234,6 +231,7 @@ export default function AboutPage() {
                 { name: "Evang Dr Mrs F.T DADA", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 4.03.04 PM.jpeg" },
                 { name: "Pastor Dr Mrs opesan", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 4.06.19 PM.jpeg" },
                 { name: "Pastor Dr Mrs Esther Okunuga", role: "Doctorate Holder", img: "/doctorate/WhatsApp Image 2026-07-16 at 4.07.57 PM.jpeg" },
+                { name: "Oba HRH Dr. Peter Babatunde Ojo", role: "The Akimo of Ikimo Ijesa (Board Member)", img: "/Boards/WhatsApp Image 2026-04-28 at 10.12.06 PM.jpeg" },
               ] as { name: string; role: string; img: string }[]
             ).map((person, i) => (
               <StaggerItem key={i}>

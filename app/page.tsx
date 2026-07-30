@@ -114,7 +114,7 @@ export default function TheologySchool() {
             { name: 'Pastor Dr. Henry Olubunmi Adesemoye', role: 'Dean', img: '/Boards/WhatsApp Image 2026-04-28 at 8.40.43 PM.jpeg' },
             { name: 'Pastor Dr J.A. Adeleye', role: 'Registrar', img: '/Boards/WhatsApp Image 2026-05-07 at 8.38.20 PM.jpeg' },
             { name: 'Patron Dr. Isaac .O. Ogundipe', role: 'Patron', img: '/Boards/WhatsApp Image 2026-04-28 at 8.46.50 PM.jpeg' },
-            { name: 'Oba HRH Dr. Peter Babatunde Ojo', role: 'Board Member', img: '/Boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg' },
+            { name: 'Pastor Dr. F.F Adagunodo', role: 'Board Secretary', img: '/Boards/WhatsApp Image 2026-04-28 at 10.14.28 PM.jpeg' },
           ].map((pillar, index) => (
             <div key={index} className="bg-[#f6f2eb] rounded-sm overflow-hidden border border-[#e0bfbf]/20 shadow-sm">
               <div className="aspect-[4/5] relative">
